@@ -149,7 +149,7 @@ class InsightsController extends Controller
         }
         $category = strtolower($request->category);
 
-        if(!is_null($request->file('image')))
+        if(!is_null($request->file('main_image')))
         {
             $main_image = $this->uploadImage($request->file('main_image'));
         }
