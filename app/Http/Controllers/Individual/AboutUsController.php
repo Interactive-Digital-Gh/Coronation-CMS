@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Individual;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\BOD;
+use App\Models\ExecutiveMember;
 use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
@@ -18,7 +19,7 @@ class AboutUsController extends Controller
 
     public function uploadImage($imageFile): string
     { //Move Uploaded File to public folder
-        $destinationPath = 'images/uploads/aboutus/';
+        $destinationPath = 'images/uploads/about-us/';
         $hashed_image_name = $imageFile->hashName();
         $img_path = $destinationPath.$hashed_image_name;
         $imageFile->move(public_path($destinationPath), $hashed_image_name);
@@ -298,7 +299,7 @@ class AboutUsController extends Controller
 
         $bod->save();
 
-        toastr()->success('BOD Added');
+        toastr()->success('BOD Updated');
 
         return redirect()->route('about-sec5');
     }
@@ -309,6 +310,83 @@ class AboutUsController extends Controller
 
         toastr()->success('BOD Deleted');
 
+        return back();
+    }
+
+
+    public function executiveMembersTable()
+    {
+        $executives = ExecutiveMember::all();
+        return view('pages.aboutpage.executive-table', compact('executives'));
+    }
+
+    public function createExecutiveMember()
+    {
+        return view('pages.aboutpage.add-executive');
+    }
+
+    public function storeExecutiveMember(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'name' => 'required',
+            'body' => 'required',
+        ]);
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        ExecutiveMember::create([
+            'image' => $imagePath,
+            'name' => $request->name,
+            'description' => $request->body,
+        ]);
+
+        toastr()->success('Executive Member Added');
+
+        return redirect()->route('executive-table');
+    }
+
+    public function editExecutiveMember($id)
+    {
+        $executive = ExecutiveMember::find($id);
+        return view('pages.aboutpage.edit-executive', compact('executive'));
+    }
+
+    public function updateExecutiveMember(Request $request, $id)
+    {
+        // dd($request->all());
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'name' => 'required',
+            'body' => 'required',
+        ]);
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        $executive = ExecutiveMember::find($id);
+
+        isset($imagePath) ? $executive->image = $imagePath : '';
+        $executive->name = $request->name;
+        $executive->description = $request->body;
+        $executive->save();
+
+        toastr()->success('Executive Member Updated');
+
+        return redirect()->route('executive-table');
+    }
+
+    public function deleteExecutiveMember($id)
+    {
+        ExecutiveMember::destroy($id);
+
+        toastr()->success('Executive Member Deleted');
         return back();
     }
 

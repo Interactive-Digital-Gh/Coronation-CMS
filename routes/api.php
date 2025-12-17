@@ -31,6 +31,8 @@ Route::get('/institute/motor/fetch', [ApiController::class, 'instituteMotorInsur
 Route::get('/institute/engineering/fetch', [ApiController::class, 'instituteEngInsurance']);
 Route::get('/institute/marine/fetch', [ApiController::class, 'instituteMarineInsurance']);
 
+Route::get('/aboutus/executive-members/fetch', [ApiController::class, 'fetchExecutiveMembers']);
+
 
 
 

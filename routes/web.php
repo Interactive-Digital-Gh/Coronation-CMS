@@ -21,6 +21,10 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
+
 // Route::get('/dashboard', function () {
 //     return view('pages.homepage.header');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -68,6 +72,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/section5/{id}/edit', [AboutUsController::class, 'editBoD'])->name('about-sec5-edit');
         Route::post('/section5/{id}/update', [AboutUsController::class, 'updateBoD'])->name('about-sec5-update');
         Route::get('/section5/{id}/delete', [AboutUsController::class, 'deleteBoD'])->name('about-sec5-delete');
+
+
+        Route::get('/executive-members', [AboutUsController::class, 'executiveMembersTable'])->name('executive-table');
+        Route::get('/executive-members/create', [AboutUsController::class, 'createExecutiveMember'])->name('create-executive-member');
+        Route::post('/executive-members/store', [AboutUsController::class, 'storeExecutiveMember'])->name('store-executive-member');
+        Route::get('/executive-members/{id}/edit', [AboutUsController::class, 'editExecutiveMember'])->name('edit-executive-member');
+        Route::post('/executive-members/{id}/update', [AboutUsController::class, 'updateExecutiveMember'])->name('update-executive-member');
+        Route::get('/executive-members/{id}/delete', [AboutUsController::class, 'deleteExecutiveMember'])->name('delete-executive-member');
     });
 
 

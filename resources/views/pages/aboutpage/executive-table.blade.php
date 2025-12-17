@@ -60,7 +60,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Aboutpage Board Members</h2>
+                            <h2 class="pageheader-title">Aboutpage Executive Members</h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
@@ -100,16 +100,16 @@
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="margin-bottom: 2rem;">
-                        {{-- <h3>Board Member</h3> --}}
+                        <h3>Executive Members</h3>
 
-                        <a href="{{ route('about-create-bod') }}" class="btn btn-primary btn-lg" style="margin-right: 10px">Add New Board Member</a>
+                        <a href="{{ route('create-executive-member') }}" class="btn btn-primary btn-lg" style="margin-right: 10px">Add New Executive Member</a>
                     </div>
 
                 </div>
 
                 <div class="col-lg-12">
                     <div class="section-block">
-                        <h3 class="section-title">All Board Members</h3>
+                        <h3 class="section-title">All Executive Members</h3>
                     </div>
                     <div class="card">
                         <div class="campaign-table table-responsive">
@@ -124,14 +124,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($bods as $bod)
+                                    @foreach($executives as $executive)
                                     <tr>
                                         <td>
-                                            <div class="m-r-10"><a href="{{ asset($bod->image) }}" target="_blank"><img src="{{ asset($bod->image) }}" alt="user" width="35"></a></div>
+                                            <div class="m-r-10"><a href="{{ asset($executive->image) }}" target="_blank"><img src="{{ asset($executive->image) }}" alt="user" width="35"></a></div>
                                         </td>
-                                        <td>{{ $bod->name }}</td>
-                                        <td>{{ $bod->title }}</td>
-                                        <td>{{ $bod->created_at }}</td>
+                                        <td>{{ $executive->name }}</td>
+                                        <td>{{ $executive->created_at }}</td>
+                                        <td>{{ $executive->updated_at }}</td>
                                         <td>
                                             <div class="dropdown float-right">
                                                 <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="true">
@@ -139,9 +139,9 @@
                                                              </a>
                                                 <div class="dropdown-menu dropdown-menu-right">
                                                     <!-- item-->
-                                                    <a href="{{ route('about-sec5-edit', ['id' => $bod->id]) }}" class="dropdown-item">Edit</a>
+                                                    <a href="{{ route('edit-executive-member', ['id' => $executive->id]) }}" class="dropdown-item">Edit</a>
                                                     <!-- item-->
-                                                    <a href="{{ route('about-sec5-delete', ['id' => $bod->id]) }}" class="dropdown-item" onclick="return confirm('Are you sure?')">Delete</a>
+                                                    <a href="{{ route('delete-executive-member', ['id' => $executive->id]) }}" class="dropdown-item" onclick="return confirm('Are you sure?')">Delete</a>
                                                 </div>
                                             </div>
                                         </td>

@@ -50,7 +50,10 @@
                                     <a class="nav-link" href="{{ route('about-sec4') }}">Section 4</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('about-sec5') }}">Section 5</a>
+                                    <a class="nav-link" href="{{ route('about-sec5') }}">Board of Directors</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('executive-table') }}">Executive Members</a>
                                 </li>
                             </ul>
                         </div>

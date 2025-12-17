@@ -8,6 +8,7 @@ use App\Models\BOD;
 use App\Models\Career;
 use App\Models\Contact;
 use App\Models\EngineeringInsurance;
+use App\Models\ExecutiveMember;
 use App\Models\HomeInsurance;
 use App\Models\Homepage;
 use App\Models\Insight;
@@ -242,4 +243,11 @@ class ApiController extends Controller
 
     //     return view('article-pdf-view', compact('data'));
     // }
+
+
+    public function fetchExecutiveMembers()
+    {
+        $data = ExecutiveMember::all();
+        return response()->json($data);
+    }
 }
