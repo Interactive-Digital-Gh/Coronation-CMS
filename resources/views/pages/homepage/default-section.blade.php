@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" href="{{ asset(\'assets/libs/css/style.css\') }}?v={{ filemtime(public_path(\'assets/libs/css/style.css\')) }}">
     <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
 
     {{-- TinyMCE Editor  --}}
@@ -81,7 +81,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <iframe style="border:2px #000 solid" src="https://coronation.interactivedigital.com.gh/" title="iFrame" width="100%" height="400px" scrolling="no" frameborder="yes" allow=""></iframe>
+                        <iframe style="border:2px #000 solid" src="https://coronation.com.gh/" title="iFrame" width="100%" height="400px" scrolling="no" frameborder="yes" allow=""></iframe>
                     </div>
                 </div>
 
