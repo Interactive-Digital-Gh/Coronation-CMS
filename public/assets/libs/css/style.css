@@ -6976,3 +6976,166 @@ Media Query
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width:320px) {}
+
+/* ==============================================================
+   CORONATION CMS MODERNIZATION OVERRIDES
+   ============================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif !important;
+    background-color: #f3f4f6 !important; /* Soft gray for modern feel */
+    color: #374151 !important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+}
+
+/* CARDS */
+.card {
+    border-radius: 12px !important;
+    border: none !important;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05) !important;
+    margin-bottom: 24px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05) !important;
+}
+
+.card-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    padding: 20px 24px !important;
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+    font-weight: 600 !important;
+}
+
+.card-body {
+    padding: 24px !important;
+}
+
+/* BUTTONS */
+.btn {
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    padding: 10px 20px !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.btn-primary {
+    background-color: #4f46e5 !important; /* Indigo modern */
+    border-color: #4f46e5 !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca !important;
+    border-color: #4338ca !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3) !important;
+}
+
+/* TABLES */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+.table thead th {
+    background-color: #f9fafb !important;
+    color: #6b7280 !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #e5e7eb !important;
+    border-top: none !important;
+    padding: 12px 24px !important;
+}
+.table td, .table th {
+    border-top: 1px solid #e5e7eb !important;
+    padding: 16px 24px !important;
+    vertical-align: middle !important;
+}
+.table tbody tr:hover {
+    background-color: #f9fafb !important;
+}
+
+/* SIDEBAR */
+.nav-left-sidebar {
+    background-color: #111827 !important;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+.nav-left-sidebar .nav-link {
+    color: #9ca3af !important;
+    font-weight: 500 !important;
+    padding: 12px 20px !important;
+    transition: all 0.2s ease !important;
+    border-left: 3px solid transparent !important;
+}
+
+.nav-left-sidebar .nav-link:hover, 
+.nav-left-sidebar .nav-link.active {
+    color: #ffffff !important;
+    background-color: #1f2937 !important;
+    border-left-color: #4f46e5 !important; /* Indigo highlight */
+}
+
+.nav-left-sidebar .submenu {
+    background-color: #1f2937 !important;
+}
+
+.nav-left-sidebar .nav-divider {
+    color: #6b7280 !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 16px 20px 8px !important;
+}
+
+/* NAVBAR HEADER */
+.dashboard-header .navbar {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+}
+.navbar-brand img {
+    height: 40px !important;
+    object-fit: contain;
+}
+
+/* INPUTS */
+.form-control, .custom-select {
+    border-radius: 8px !important;
+    border: 1px solid #d1d5db !important;
+    padding: 10px 16px !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+.form-control:focus, .custom-select:focus {
+    border-color: #4f46e5 !important;
+    box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25) !important;
+}
+
+/* MISC */
+.pageheader-title {
+    font-weight: 700 !important;
+    letter-spacing: -0.025em;
+    color: #111827 !important;
+}
+.breadcrumb-link {
+    color: #6b7280 !important;
+}
+.breadcrumb-item.active {
+    color: #4f46e5 !important;
+    font-weight: 500 !important;
+}
+/* END CMS MODERNIZATION */
