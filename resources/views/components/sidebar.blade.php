@@ -12,7 +12,7 @@
                     </li>
 
                     <li class="nav-item ">
-                        <a class="nav-link {{ Route::is('home-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Homepage <span class="badge badge-success">6</span></a>
+                        <a class="nav-link {{ Route::is('home-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-home"></i>Homepage <span class="badge badge-success">6</span></a>
                         <div id="submenu-1" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
@@ -31,7 +31,7 @@
 
 
                     <li class="nav-item ">
-                        <a class="nav-link {{ Route::is('about-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-user-circle"></i>About Page <span class="badge badge-success">6</span></a>
+                        <a class="nav-link {{ Route::is('about-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-info-circle"></i>About Page <span class="badge badge-success">6</span></a>
                         <div id="submenu-2" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
@@ -61,7 +61,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('pns-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-14" aria-controls="submenu-14"><i class="fas fa-f fa-folder"></i>Products & Solutions</a>
+                        <a class="nav-link {{ Route::is('pns-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-14" aria-controls="submenu-14"><i class="fa fa-fw fa-cubes"></i>Products & Solutions</a>
                         <div id="submenu-14" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
@@ -188,7 +188,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('blogs-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fa fa-fw fa-user-circle"></i> Insights<span class="badge badge-success">7</span></a>
+                        <a class="nav-link {{ Route::is('blogs-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fa fa-fw fa-lightbulb"></i> Insights<span class="badge badge-success">7</span></a>
                         <div id="submenu-7" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
@@ -202,7 +202,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('careers-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-8" aria-controls="submenu-8"><i class="fa fa-fw fa-user-circle"></i> Careers<span class="badge badge-success">8</span></a>
+                        <a class="nav-link {{ Route::is('careers-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-8" aria-controls="submenu-8"><i class="fa fa-fw fa-briefcase"></i> Careers<span class="badge badge-success">8</span></a>
                         <div id="submenu-8" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
@@ -222,7 +222,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('contact-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-9" aria-controls="submenu-9"><i class="fa fa-fw fa-user-circle"></i> Contact<span class="badge badge-success">9</span></a>
+                        <a class="nav-link {{ Route::is('contact-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-9" aria-controls="submenu-9"><i class="fa fa-fw fa-envelope"></i> Contact<span class="badge badge-success">9</span></a>
                         <div id="submenu-9" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
@@ -255,7 +255,7 @@
                     </li> --}}
 
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('institute-pns-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-18" aria-controls="submenu-18"><i class="fas fa-f fa-folder"></i>Institute Products & Solutions</a>
+                        <a class="nav-link {{ Route::is('institute-pns-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-18" aria-controls="submenu-18"><i class="fa fa-fw fa-building"></i>Institute Products & Solutions</a>
                         <div id="submenu-18" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
