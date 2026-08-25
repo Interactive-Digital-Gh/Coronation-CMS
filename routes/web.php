@@ -71,7 +71,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/section5/add/bod', [AboutUsController::class, 'storeBoD'])->name('about-sec5-store');
         Route::get('/section5/{id}/edit', [AboutUsController::class, 'editBoD'])->name('about-sec5-edit');
         Route::post('/section5/{id}/update', [AboutUsController::class, 'updateBoD'])->name('about-sec5-update');
-        Route::get('/section5/{id}/delete', [AboutUsController::class, 'deleteBoD'])->name('about-sec5-delete');
+        Route::delete('/section5/{id}', [AboutUsController::class, 'deleteBoD'])->name('about-sec5-delete');
 
 
         Route::get('/executive-members', [AboutUsController::class, 'executiveMembersTable'])->name('executive-table');
@@ -79,7 +79,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/executive-members/store', [AboutUsController::class, 'storeExecutiveMember'])->name('store-executive-member');
         Route::get('/executive-members/{id}/edit', [AboutUsController::class, 'editExecutiveMember'])->name('edit-executive-member');
         Route::post('/executive-members/{id}/update', [AboutUsController::class, 'updateExecutiveMember'])->name('update-executive-member');
-        Route::get('/executive-members/{id}/delete', [AboutUsController::class, 'deleteExecutiveMember'])->name('delete-executive-member');
+        Route::delete('/executive-members/{id}', [AboutUsController::class, 'deleteExecutiveMember'])->name('delete-executive-member');
     });
 
 
@@ -138,8 +138,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/all-blogs', [InsightsController::class, 'allBlogPage'])->name('blogs-all');
         Route::get('/add-blog', [InsightsController::class, 'showAddBlogPage'])->name('add-blog');
         Route::post('/submit-blog', [InsightsController::class, 'addBlog'])->name('submit-blog');
-        Route::get('/blog/{id}/delete', [InsightsController::class, 'deleteBlog'])->name('delete-blog');
-        Route::get('/blog/{id}/publish', [InsightsController::class, 'publishBlog'])->name('publish-blog');
+        Route::delete('/blog/{id}', [InsightsController::class, 'deleteBlog'])->name('delete-blog');
+        Route::post('/blog/{id}/publish', [InsightsController::class, 'publishBlog'])->name('publish-blog');
         Route::get('/blog/{id}/edit', [InsightsController::class, 'editBlog'])->name('edit-blog');
         Route::post('/blog/{id}/update', [InsightsController::class, 'updateBlog'])->name('update-blog');
     });

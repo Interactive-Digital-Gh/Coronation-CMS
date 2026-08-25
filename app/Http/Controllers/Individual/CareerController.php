@@ -86,9 +86,8 @@ class CareerController extends Controller
 
         $career->save();
 
-        toastr()->success('Careers Header Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -114,9 +113,8 @@ class CareerController extends Controller
 
         $career->save();
 
-        toastr()->success('Careers Section 1 Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
     public function updateCareersSection2(Request $request)
@@ -141,9 +139,8 @@ class CareerController extends Controller
 
         $career->save();
 
-        toastr()->success('Careers Section 2 Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -190,15 +187,13 @@ class CareerController extends Controller
                 $career->card5_body = $request->body;
                 break;
             default:
-                toastr()->error('Something Went Wront');
-                return back();
+                return back()->with('success', 'Changes saved.');
         }
 
         $career->save();
 
-        toastr()->success('Careers Card Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 

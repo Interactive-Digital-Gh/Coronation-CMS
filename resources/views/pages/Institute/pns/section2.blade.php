@@ -1,159 +1,18 @@
-<!doctype html>
-<html lang="en">
+<x-cms-layout title="Institute Products & Solutions Section 2"
+              :breadcrumbs="['Institute' => null, 'Products & Solutions' => route('institute-pns-header'), 'Section 2' => null]"
+              preview="https://coronation.com.gh/">
+    <x-cms.form :action="route('institute-pns-section2-update')" files>
+        <x-cms.card title="Section 2 image">
+            <x-cms.file-input name="image" label="Section 2 image" :current="$pns->sec2_image" />
+        </x-cms.card>
 
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Products and Solutions</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link href="{{ asset('assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/libs/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/fontawesome/css/fontawesome-all.css') }}">
-
-
-    {{-- TinyMCE Editor  --}}
-    @include('components.head.tinymce-config')
-
-    {{-- Toastr Notifications  --}}
-    @include('components.head.notif')
-</head>
-
-<body>
-    <!-- ============================================================== -->
-    <!-- main wrapper -->
-    <!-- ============================================================== -->
-    <div class="dashboard-main-wrapper">
-        <!-- ============================================================== -->
-        <!-- navbar -->
-        <!-- ============================================================== -->
-       @include('components.navbar')
-        <!-- ============================================================== -->
-        <!-- end navbar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- left sidebar -->
-        <!-- ============================================================== -->
-        @include('components.sidebar')
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- wrapper  -->
-        <!-- ============================================================== -->
-        <div class="dashboard-wrapper">
-            <div class="container-fluid dashboard-content">
-                <!-- ============================================================== -->
-                <!-- pageheader -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h2 class="pageheader-title">Products & Solution Section 2 </h2>
-                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Institution</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Products & Solution</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Section 2</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- end pageheader -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- overview  -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-section" id="overview">
-                            <div class="row">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h2>Overview</h2>
-                                    <p class="lead">Iframe of section being edited.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <iframe style="border:2px #000 solid" src="https://coronation.com.gh/" title="iFrame" width="100%" height="400px" scrolling="no" frameborder="yes" allow=""></iframe>
-                    </div>
-                </div>
-
-
-            <form action="{{ route('institute-pns-section2-update') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('POST')
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h3>Header Image</h3>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Upload Header Image</h5>
-                            <div class="card-body">
-                                    <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="customFile" name="image">
-                                        <label class="custom-file-label" for="customFile">File Input</label>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    @php
-                    $image = $pns->sec2_image;
-                    @endphp
-                    {{-- Current Image Card --}}
-                    @include('components.current-image')
-
-                </div>
-
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="card">
-                            @php
-                                $caption = $pns->sec2_caption;
-                                $body = $pns->sec2_body;
-                            @endphp
-                            @include('components.form-group.left-right-text-form')
-                            <button class="btn btn-primary" type="submit">Submit</button>
-                        </form>
-                        </div>
-                        </div>
-                    </div>
-
+        <x-cms.card title="Section 2 text">
+            <div class="grid gap-6 lg:grid-cols-2">
+                <x-cms.editor name="caption" label="Caption" :value="$pns->sec2_caption" />
+                <x-cms.editor name="body" label="Body" :value="$pns->sec2_body" />
             </div>
+        </x-cms.card>
 
-
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            @include('components.footer')
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- end main wrapper -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- end main wrapper -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <script src="{{ asset('assets/vendor/jquery/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
-    <script src="{{ asset('assets/vendor/slimscroll/jquery.slimscroll.js') }}"></script>
-    <script src="{{ asset('assets/libs/js/main-js.js') }}"></script>
-</body>
-
-</html>
+        <x-cms.submit />
+    </x-cms.form>
+</x-cms-layout>

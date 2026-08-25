@@ -53,9 +53,8 @@ class HomepageController extends Controller
 
         $home_header->save();
 
-        toastr()->success('Homepage Header Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -107,9 +106,8 @@ class HomepageController extends Controller
 
         $home_header->save();
 
-        toastr()->success('Homepage Section 1 Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -150,9 +148,8 @@ class HomepageController extends Controller
 
             $home_header->save();
 
-            toastr()->success('Homepage Section 2 Updated');
 
-            return back();
+            return back()->with('success', 'Changes saved.');
         }
 
     /**

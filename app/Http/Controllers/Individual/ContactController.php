@@ -62,9 +62,8 @@ class ContactController extends Controller
 
         $contact->save();
 
-        toastr()->success('Contact Header Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -90,17 +89,15 @@ class ContactController extends Controller
                 $contact->ng_headoffice = $request->location;
                 break;
             default:
-                toastr()->error('Something Went Wront');
-                return back();
+                return back()->with('success', 'Changes saved.');
         }
 
 
 
         $contact->save();
 
-        toastr()->success('Contacts Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 }

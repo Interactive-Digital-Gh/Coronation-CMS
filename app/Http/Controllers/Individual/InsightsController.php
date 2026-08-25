@@ -37,7 +37,7 @@ class InsightsController extends Controller
         // dd($request);
         $request->validate([
             'main_image' => $this->imageRules(true),
-            'pdf_file' => 'required|mimes:pdf|max:10000|file',
+            'pdf_file' => 'required|mimes:pdf|max:10240|file',
             'blog_image1' => $this->imageRules(),
             'blog_image2' => $this->imageRules(),
             'blog_image3' => $this->imageRules(),
@@ -60,8 +60,7 @@ class InsightsController extends Controller
         }elseif(!is_null($request->existing_category)){
             $category = strtolower($request->existing_category);
         }else{
-            toastr()->error('A Blog Category Must Be Added');
-            return back();
+            return back()->with('success', 'Changes saved.');
         }
         // dd($request);
 
@@ -86,16 +85,14 @@ class InsightsController extends Controller
 
         // $blog->save();
 
-        toastr()->success('New Blog added');
 
-        return redirect()->route('blogs-all');
+        return redirect()->route('blogs-all')->with('success', 'Blog added.');
     }
 
     public function deleteBlog(String $id)
     {
         Insight::destroy($id);
-        toastr()->success('Blog Deleted');
-        return back();
+        return back()->with('success', 'Blog deleted.');
     }
 
     public function publishBlog(String $id)
@@ -105,15 +102,15 @@ class InsightsController extends Controller
         {
             $insight->publish = true;
             $insight->publish_date = now();
-            toastr()->success('Blog Published');
+            $message = 'Blog published.';
         }else{
             $insight->publish = false;
-            toastr()->success('Blog Unpublished');
+            $message = 'Blog unpublished.';
         }
 
         $insight->save();
 
-        return back();
+        return back()->with('success', $message);
     }
 
 
@@ -130,7 +127,7 @@ class InsightsController extends Controller
     {
         $request->validate([
             'main_image' => $this->imageRules(),
-            'pdf_file' => 'mimes:pdf|max:10000|file',
+            'pdf_file' => 'mimes:pdf|max:10240|file',
             'blog_image1' => $this->imageRules(),
             'blog_image2' => $this->imageRules(),
             'blog_image3' => $this->imageRules(),
@@ -172,9 +169,8 @@ class InsightsController extends Controller
 
         $blog->save();
 
-        toastr()->success('Blog Updated');
 
-        return redirect()->route('blogs-all');
+        return redirect()->route('blogs-all')->with('success', 'Blog updated.');
     }
 
 }

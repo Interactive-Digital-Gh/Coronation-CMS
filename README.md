@@ -64,3 +64,14 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Coronation CMS — frontend notes
+
+- **Stack:** Blade + Tailwind CSS + Alpine.js, built with Vite. TinyMCE (cloud) is loaded only on pages with an editor.
+- **Layout & components:** every CMS page is `<x-cms-layout>` (`resources/views/components/cms-layout.blade.php`) with the
+  `<x-cms.*>` components in `resources/views/components/cms/`. Sidebar navigation is data-driven from `config/cms-nav.php`.
+- **Build:** `public/build` is committed and the deploy workflow does not run npm, so after changing CSS/JS/Blade run
+  `npm run build` and commit the result.
+- **Uploads:** image size cap is `UPLOAD_MAX_IMAGE_KB` (default 20 MB) — see `config/uploads.php`.
+- **Tests:** Feature tests use `RefreshDatabase`; run them against SQLite so the dev DB is never wiped:
+  `DB_CONNECTION=sqlite DB_DATABASE=:memory: php artisan test`

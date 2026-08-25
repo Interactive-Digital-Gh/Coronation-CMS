@@ -52,9 +52,8 @@ class TravelInsuranceController extends Controller
 
         $travel->save();
 
-        toastr()->success('Travel Insurance Header Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -108,9 +107,8 @@ class TravelInsuranceController extends Controller
 
         $travel->save();
 
-        toastr()->success('Travel Insurance Page Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -144,9 +142,8 @@ class TravelInsuranceController extends Controller
 
         $travel->save();
 
-        toastr()->success('Travel Insurance Benefits Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 

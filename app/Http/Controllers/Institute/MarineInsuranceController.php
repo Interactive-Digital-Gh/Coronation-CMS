@@ -47,9 +47,8 @@ class MarineInsuranceController extends Controller
 
         $marine->save();
 
-        toastr()->success('Marine Insurance Header Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
     public function showMarinePage()
@@ -98,9 +97,8 @@ class MarineInsuranceController extends Controller
 
         $marine->save();
 
-        toastr()->success('Marine Insurance Page Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -131,8 +129,7 @@ class MarineInsuranceController extends Controller
 
         $marine->save();
 
-        toastr()->success('Marine Insurance Benefits Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 }

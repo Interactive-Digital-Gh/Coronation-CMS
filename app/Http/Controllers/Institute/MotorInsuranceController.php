@@ -47,9 +47,8 @@ class MotorInsuranceController extends Controller
 
         $motor->save();
 
-        toastr()->success('Motor Insurance Header Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
     public function showMotorPage()
@@ -111,9 +110,8 @@ class MotorInsuranceController extends Controller
 
         $motor->save();
 
-        toastr()->success('Motor Insurance Page Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -139,8 +137,7 @@ class MotorInsuranceController extends Controller
 
         $motor->save();
 
-        toastr()->success('Institute Motor Insurance Benefits Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 }

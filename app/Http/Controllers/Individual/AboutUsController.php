@@ -51,9 +51,8 @@ class AboutUsController extends Controller
 
         $about_header->save();
 
-        toastr()->success('About Us Page Header Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -89,9 +88,8 @@ class AboutUsController extends Controller
 
         $about_header->save();
 
-        toastr()->success('About Us Page Section 1 Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -128,9 +126,8 @@ class AboutUsController extends Controller
 
         $about_header->save();
 
-        toastr()->success('About Us Page Section 2 Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -169,9 +166,8 @@ class AboutUsController extends Controller
 
         $about_header->save();
 
-        toastr()->success('About Us Page Section 3 Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -214,9 +210,8 @@ class AboutUsController extends Controller
 
         $about_header->save();
 
-        toastr()->success('About Us Page Section 4 Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -262,9 +257,8 @@ class AboutUsController extends Controller
             'title' => $request->title
         ]);
 
-        toastr()->success('BOD Added');
 
-        return redirect()->route('about-sec5');
+        return redirect()->route('about-sec5')->with('success', 'Board member added.');
     }
 
 
@@ -299,18 +293,16 @@ class AboutUsController extends Controller
 
         $bod->save();
 
-        toastr()->success('BOD Updated');
 
-        return redirect()->route('about-sec5');
+        return redirect()->route('about-sec5')->with('success', 'Board member updated.');
     }
 
     public function deleteBoD($id)
     {
         BOD::destroy($id);
 
-        toastr()->success('BOD Deleted');
 
-        return back();
+        return back()->with('success', 'Board member deleted.');
     }
 
 
@@ -345,9 +337,8 @@ class AboutUsController extends Controller
             'description' => $request->body,
         ]);
 
-        toastr()->success('Executive Member Added');
 
-        return redirect()->route('executive-table');
+        return redirect()->route('executive-table')->with('success', 'Executive member added.');
     }
 
     public function editExecutiveMember($id)
@@ -377,17 +368,15 @@ class AboutUsController extends Controller
         $executive->description = $request->body;
         $executive->save();
 
-        toastr()->success('Executive Member Updated');
 
-        return redirect()->route('executive-table');
+        return redirect()->route('executive-table')->with('success', 'Executive member updated.');
     }
 
     public function deleteExecutiveMember($id)
     {
         ExecutiveMember::destroy($id);
 
-        toastr()->success('Executive Member Deleted');
-        return back();
+        return back()->with('success', 'Executive member deleted.');
     }
 
 }

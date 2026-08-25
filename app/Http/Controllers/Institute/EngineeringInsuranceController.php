@@ -47,9 +47,8 @@ class EngineeringInsuranceController extends Controller
 
         $eng->save();
 
-        toastr()->success('Engineering Insurance Header Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -126,9 +125,8 @@ class EngineeringInsuranceController extends Controller
 
         $eng->save();
 
-        toastr()->success('Engineering Insurance Page Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 
@@ -154,9 +152,8 @@ class EngineeringInsuranceController extends Controller
 
         $eng->save();
 
-        toastr()->success('Institute Engineering Insurance Benefits Updated');
 
-        return back();
+        return back()->with('success', 'Changes saved.');
     }
 
 }

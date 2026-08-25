@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'tinymce' => [
+        'key' => env('TINYMCE_API_KEY', 'tyyxmenmdgznh2o3kecrdz3goo4q5541avldss8w1vlzhr3b'),
+    ],
+
 ];

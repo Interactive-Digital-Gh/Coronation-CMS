@@ -1,228 +1,27 @@
-<!doctype html>
-<html lang="en">
-
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Homepage Section 2</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link href="{{ asset('assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/libs/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/fontawesome/css/fontawesome-all.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.css') }}">
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
-
-
-    {{-- TinyMCE Editor  --}}
-    @include('components.head.tinymce-config')
-</head>
-
-<body>
-    <!-- ============================================================== -->
-    <!-- main wrapper -->
-    <!-- ============================================================== -->
-    <div class="dashboard-main-wrapper">
-        <!-- ============================================================== -->
-        <!-- navbar -->
-        <!-- ============================================================== -->
-       @include('components.navbar')
-        <!-- ============================================================== -->
-        <!-- end navbar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- left sidebar -->
-        <!-- ============================================================== -->
-        @include('components.sidebar')
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- wrapper  -->
-        <!-- ============================================================== -->
-        <div class="dashboard-wrapper">
-            <div class="container-fluid dashboard-content">
-                <!-- ============================================================== -->
-                <!-- pageheader -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h2 class="pageheader-title">Insights</h2>
-                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Insights</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Add New Blog</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- end pageheader -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- overview  -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-section" id="overview">
-                            <div class="row">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h2>Edit Blog Post</h2>
-                                    <p class="lead"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <form action="{{ route('update-blog', ['id' => $blog->id]) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('POST')
-
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Upload Blog Cover Image</h5>
-                            <div class="card-body">
-
-                                <div class="form-row">
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                    <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="customFile" name="main_image">
-                                        <label class="custom-file-label" for="customFile">File Input</label>
-                                    </div>
-                                    </div>
-                                        @php
-                                            $image = $blog->main_image;
-                                        @endphp
-                                        @include('components.current-image')
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Upload New Article PDF</h5>
-                            <div class="card-body">
-                                    {{-- <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="customFile" name="pdf_file">
-                                        <label class="custom-file-label" for="customFile">File Input</label>
-                                    </div> --}}
-                                    <div class="form-row">
-                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                        <div class="custom-file mb-3">
-                                            <input type="file" class="custom-file-input" id="customFile" name="pdf_file">
-                                            <label class="custom-file-label" for="customFile">File Input</label>
-                                        </div>
-                                        </div>
-                                            @php
-                                                $image = $blog->pdf_file;
-                                            @endphp
-                                            <a href="{{ asset($image) }}" class="btn btn-primary btn-block" >View Current PDF</a>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="card">
-                            {{-- <h5 class="card-header">Section 2 Text</h5> --}}
-                            <div class="card-body">
-                                <div class="form-row">
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                        <label for="exampleFormControlTextarea1">Blog Caption</label>
-                                        <textarea id="shortText" name="caption">{{ $blog->caption }}</textarea>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                        <label for="exampleFormControlTextarea1">Blog Excerpt</label>
-                                        <textarea id="shortText" name="excerpt">{{ $blog->excerpt }}</textarea>
-                                    </div>
-                                </div>
-
-                                <div class="form-row mt-5">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
-                                        <label for="exampleFormControlTextarea1">Blog Body</label>
-                                        <textarea id="blogBody" name="body">{{ $blog->body }}</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Blog Category (Type new category or select from existing category)</h5>
-                            <div class="card-body">
-                                <div class="form-row">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2 mt-2">
-                                        <label for="exampleFormControlTextarea1">Type Blog Category</label>
-                                        <input id="inputText3" type="text" class="form-control form-control-lg" placeholder="Eg. Insurance" name="category" value="{{ ucfirst($blog->category) }}">
-                                    </div>
-                                    {{-- <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
-                                        <h5 class="card-title">Select Existing Category</h5>
-                                        <select class="selectpicker" data-width="85%" name="existing_category">
-                                            @foreach ( $categories as $category)
-                                                <option {{ $blog->category == strtolower($category->category) ? 'selected' : '' }}>{{ ucfirst($category->category) }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div> --}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <button class="btn btn-primary btn-block" type="submit" name="submit" value="" >Submit</button>
-            </form>
-            </div>
-
-
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            @include('components.footer')
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
+<x-cms-layout title="Edit Blog"
+              :breadcrumbs="['Individual' => null, 'Insights' => route('blogs-all'), 'Edit Blog' => null]">
+    <x-cms.form :action="route('update-blog', ['id' => $blog->id])" files>
+        <div class="grid gap-6 lg:grid-cols-2">
+            <x-cms.card title="Cover image">
+                <x-cms.file-input name="main_image" label="Cover image" :current="$blog->main_image" />
+            </x-cms.card>
+            <x-cms.card title="Article PDF">
+                <x-cms.file-input name="pdf_file" label="Article PDF" accept="application/pdf" :max-kb="10240" :current="$blog->pdf_file" />
+            </x-cms.card>
         </div>
-        <!-- ============================================================== -->
-        <!-- end main wrapper -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- end main wrapper -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <script src="{{ asset('assets/vendor/jquery/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
-    <script src="{{ asset('assets/vendor/slimscroll/jquery.slimscroll.js') }}"></script>
-    <script src="{{ asset('assets/libs/js/main-js.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap-select/js/bootstrap-select.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script>
-        @if ($errors->any())
-            @foreach ($errors->all() as $error)
-                toastr.error("{{ $error }}");
-            @endforeach
-        @endif
-    </script>
-</body>
 
-</html>
+        <x-cms.card title="Content">
+            <div class="grid gap-6 lg:grid-cols-2">
+                <x-cms.editor name="caption" label="Blog caption" :value="$blog->caption" />
+                <x-cms.editor name="excerpt" label="Blog excerpt" :value="$blog->excerpt" />
+            </div>
+            <x-cms.editor name="body" label="Blog body" full class="mt-6" :value="$blog->body" />
+        </x-cms.card>
+
+        <x-cms.card title="Category">
+            <x-cms.input name="category" label="Blog category" placeholder="e.g. Insurance" :value="ucfirst($blog->category)" required />
+        </x-cms.card>
+
+        <x-cms.submit name="submit" value="" />
+    </x-cms.form>
+</x-cms-layout>

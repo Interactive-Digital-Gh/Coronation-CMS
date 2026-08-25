@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition
+               focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2
+               disabled:cursor-not-allowed disabled:opacity-60;
+    }
+    .btn-primary {
+        @apply btn bg-brand-600 text-white shadow-sm hover:bg-brand-700;
+    }
+    .btn-secondary {
+        @apply btn border border-gray-300 bg-white text-gray-700 shadow-sm hover:bg-gray-50;
+    }
+    .btn-danger {
+        @apply btn bg-red-600 text-white shadow-sm hover:bg-red-700;
+    }
+    .form-label {
+        @apply mb-1.5 block text-sm font-medium text-gray-700;
+    }
+    .form-input {
+        @apply block w-full rounded-lg border-gray-300 text-sm shadow-sm
+               focus:border-brand-500 focus:ring-brand-500;
+    }
+    .form-hint {
+        @apply mt-1.5 text-xs text-gray-500;
+    }
+    .form-error {
+        @apply mt-1.5 text-xs font-medium text-red-600;
+    }
+    .table-th {
+        @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500;
+    }
+    .table-td {
+        @apply px-4 py-3 text-sm text-gray-700;
+    }
+}
+
+/* TinyMCE sits inside cards; keep its chrome consistent with our inputs */
+.tox-tinymce {
+    @apply !rounded-lg !border-gray-300;
+}
+
+@layer components {
+    .menu-item {
+        @apply block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50;
+    }
+}
