@@ -36,11 +36,11 @@ class InsightsController extends Controller
     {
         // dd($request);
         $request->validate([
-            'main_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000',
+            'main_image' => $this->imageRules(true),
             'pdf_file' => 'required|mimes:pdf|max:10000|file',
-            'blog_image1' => 'image|mimes:jpeg,png,jpg,gif',
-            'blog_image2' => 'image|mimes:jpeg,png,jpg,gif',
-            'blog_image3' => 'image|mimes:jpeg,png,jpg,gif',
+            'blog_image1' => $this->imageRules(),
+            'blog_image2' => $this->imageRules(),
+            'blog_image3' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required',
         ]);
@@ -129,11 +129,11 @@ class InsightsController extends Controller
     public function updateBlog(Request $request, String $id)
     {
         $request->validate([
-            'main_image' => 'image|mimes:jpeg,png,jpg,gif|max:10000',
+            'main_image' => $this->imageRules(),
             'pdf_file' => 'mimes:pdf|max:10000|file',
-            'blog_image1' => 'image|mimes:jpeg,png,jpg,gif',
-            'blog_image2' => 'image|mimes:jpeg,png,jpg,gif',
-            'blog_image3' => 'image|mimes:jpeg,png,jpg,gif',
+            'blog_image1' => $this->imageRules(),
+            'blog_image2' => $this->imageRules(),
+            'blog_image3' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required',
             'category' => 'required',

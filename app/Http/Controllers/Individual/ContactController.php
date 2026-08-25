@@ -43,7 +43,7 @@ class ContactController extends Controller
     public function updateContactHeader(Request $request)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);

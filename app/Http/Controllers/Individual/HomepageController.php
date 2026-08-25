@@ -35,7 +35,7 @@ class HomepageController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -76,7 +76,7 @@ class HomepageController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required',
             'text' => 'required',

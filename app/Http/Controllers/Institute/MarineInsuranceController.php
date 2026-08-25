@@ -28,7 +28,7 @@ class MarineInsuranceController extends Controller
     public function updateMarineInsuranceHeader(Request $request)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -63,7 +63,7 @@ class MarineInsuranceController extends Controller
     {
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,JPG,webp|max:10000',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required',
             'insurance_body' => 'required',
@@ -114,7 +114,7 @@ class MarineInsuranceController extends Controller
     {
         $request->validate([
             'benefits_body' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'image' => $this->imageRules(),
             'benefits' => 'required',
         ]);
 
