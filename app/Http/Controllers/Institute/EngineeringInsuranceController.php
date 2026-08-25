@@ -28,7 +28,7 @@ class EngineeringInsuranceController extends Controller
     public function updateEngineeringInsuranceHeader(Request $request)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -64,8 +64,8 @@ class EngineeringInsuranceController extends Controller
     {
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,JPG,webp|max:10000',
-            'feature_image' => 'image|mimes:jpeg,png,jpg,JPG,webp|max:10000',
+            'image' => $this->imageRules(),
+            'feature_image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required',
             'insurance_body' => 'required',

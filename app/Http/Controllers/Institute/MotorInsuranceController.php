@@ -28,7 +28,7 @@ class MotorInsuranceController extends Controller
     public function updateMotorInsuranceHeader(Request $request)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:10000',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -64,8 +64,8 @@ class MotorInsuranceController extends Controller
     {
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,JPG|max:10000',
-            'background_image' => 'image|mimes:jpeg,png,jpg,gif,JPG|max:10000',
+            'image' => $this->imageRules(),
+            'background_image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required',
             'body1' => 'required',

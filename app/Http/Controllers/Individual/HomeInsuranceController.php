@@ -34,7 +34,7 @@ class HomeInsuranceController extends Controller
     public function updateHomeInsuranceHeader(Request $request)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -66,8 +66,8 @@ class HomeInsuranceController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,webp|max:10000',
-            'feature_image' => 'image|mimes:jpeg,png,jpg,webp|max:10000',
+            'image' => $this->imageRules(),
+            'feature_image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required',
             'body1' => 'required',
@@ -123,7 +123,7 @@ class HomeInsuranceController extends Controller
     {
         $request->validate([
             'benefits_body' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'image' => $this->imageRules(),
             'benefits' => 'required',
         ]);
 

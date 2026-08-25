@@ -67,7 +67,7 @@ class CareerController extends Controller
     public function updateCareersHeader(Request $request)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -95,7 +95,7 @@ class CareerController extends Controller
     public function updateCareersSection1(Request $request)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -122,7 +122,7 @@ class CareerController extends Controller
     public function updateCareersSection2(Request $request)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -150,7 +150,7 @@ class CareerController extends Controller
     public function updateCareersSection3(Request $request)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);

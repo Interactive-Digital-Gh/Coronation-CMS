@@ -30,7 +30,7 @@ class PnSController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -68,7 +68,7 @@ class PnSController extends Controller
            // dd($request->all());
 
            $request->validate([
-               'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+               'image' => $this->imageRules(),
                'caption1' => 'required',
                'body1' => 'required',
                'caption' => 'required',
@@ -127,7 +127,7 @@ class PnSController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,webp,PNG|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);

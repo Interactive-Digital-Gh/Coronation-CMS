@@ -28,3 +28,23 @@
         });
     </script>
 @endif
+
+<script>
+    // Client-side mirror of the image size cap (config/uploads.php). The server
+    // still validates; this just saves editors a round trip on oversized files.
+    (function () {
+        var maxKb = {{ (int) config('uploads.max_image_kb') }};
+        var maxLabel = (maxKb % 1024 === 0 ? maxKb / 1024 : (maxKb / 1024).toFixed(1)) + ' MB';
+
+        $(document).on('change', 'input[type="file"]', function () {
+            var file = this.files && this.files[0];
+            if (!file || file.type.indexOf('image/') !== 0 || file.size <= maxKb * 1024) {
+                return;
+            }
+
+            toastr.error('"' + file.name + '" is ' + (file.size / 1048576).toFixed(1) + ' MB. Images must be ' + maxLabel + ' or smaller.');
+            this.value = '';
+            $(this).siblings('.custom-file-label').text('File Input');
+        });
+    })();
+</script>

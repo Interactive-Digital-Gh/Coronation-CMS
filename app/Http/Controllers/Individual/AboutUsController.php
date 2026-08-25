@@ -33,7 +33,7 @@ class AboutUsController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -110,7 +110,7 @@ class AboutUsController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -151,7 +151,7 @@ class AboutUsController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -196,7 +196,7 @@ class AboutUsController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,PNG,webp|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -244,7 +244,7 @@ class AboutUsController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image' => $this->imageRules(true),
             'name' => 'required',
             'body' => 'required',
             'title' => 'required'
@@ -279,7 +279,7 @@ class AboutUsController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'name' => 'required',
             'body' => 'required',
             'title' => 'required'
@@ -329,7 +329,7 @@ class AboutUsController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image' => $this->imageRules(true),
             'name' => 'required',
             'body' => 'required',
         ]);
@@ -360,7 +360,7 @@ class AboutUsController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'name' => 'required',
             'body' => 'required',
         ]);

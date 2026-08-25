@@ -33,7 +33,7 @@ class TravelInsuranceController extends Controller
     public function updateTravelInsuranceHeader(Request $request)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -66,8 +66,8 @@ class TravelInsuranceController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,wepb|max:10000',
-            'feature_image' => 'image|mimes:jpeg,png,jpg,webp|max:10000',
+            'image' => $this->imageRules(),
+            'feature_image' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required',
             'body1' => 'required',
@@ -127,7 +127,7 @@ class TravelInsuranceController extends Controller
     {
         $request->validate([
             'benefits_body' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'image' => $this->imageRules(),
             'benefits' => 'required',
         ]);
 
