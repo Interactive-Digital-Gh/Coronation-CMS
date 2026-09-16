@@ -258,7 +258,7 @@ class AboutUsController extends Controller
         BOD::create([
             'image' => $imagePath,
             'name' => $request->name,
-            'body' => $request->body,
+            'body' => $this->cleanRichText($request->body),
             'title' => $request->title
         ]);
 
@@ -295,7 +295,7 @@ class AboutUsController extends Controller
         isset($imagePath) ? $bod->image = $imagePath : '';
         $bod->name = $request->name;
         $bod->title = $request->title;
-        $bod->body = $request->body;
+        $bod->body = $this->cleanRichText($request->body);
 
         $bod->save();
 
