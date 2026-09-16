@@ -9,49 +9,74 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:
+      # The deploy script is defined once here so the retry step below runs
+      # exactly the same thing. Every step in it is idempotent, so re-running
+      # it after a failed attempt is safe.
+      DEPLOY_SCRIPT: |
+        set -e
+
+        echo "Entering project..."
+        cd /var/www/production/Coronation-CMS
+
+        echo "Maintenance mode..."
+        php artisan down || true
+
+        echo "Syncing code..."
+        git fetch origin
+        git reset --hard origin/main
+        git clean -fd
+
+        echo "Installing dependencies..."
+        composer install --no-dev --optimize-autoloader
+
+        echo "Running migrations..."
+        php artisan migrate --force
+
+        echo "Clearing caches..."
+        php artisan optimize:clear
+
+        echo "Rebuilding caches..."
+        php artisan config:cache
+        php artisan route:cache
+
+        echo "Fixing permissions..."
+        chown -R www-data:www-data storage bootstrap/cache
+        chmod -R 775 storage bootstrap/cache
+
+        echo "Restart queues..."
+        php artisan queue:restart || true
+
+        echo "App live..."
+        php artisan up
+
+        echo "Reloading Nginx..."
+        sudo systemctl reload nginx
+
     steps:
       - name: Deploy via SSH
+        id: deploy
+        uses: appleboy/ssh-action@v1.0.3
+        # Don't fail the job yet; the retry step below decides the outcome.
+        continue-on-error: true
+        with:
+          host: ${{ vars.PROD_SERVER_HOST }}
+          username: ${{ vars.PROD_SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: ${{ env.DEPLOY_SCRIPT }}
+
+      # sshd on the server occasionally drops a connection before the handshake
+      # (MaxStartups throttling under botnet load), which surfaces as
+      # "ssh: handshake failed: EOF". Pause briefly and try once more.
+      - name: Wait before retry
+        if: steps.deploy.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy via SSH (retry)
+        if: steps.deploy.outcome == 'failure'
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ vars.PROD_SERVER_HOST }}
           username: ${{ vars.PROD_SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
-            set -e
-
-            echo "Entering project..."
-            cd /var/www/production/Coronation-CMS
-
-            echo "Maintenance mode..."
-            php artisan down || true
-
-            echo "Syncing code..."
-            git fetch origin
-            git reset --hard origin/main
-            git clean -fd
-
-            echo "Installing dependencies..."
-            composer install --no-dev --optimize-autoloader
-
-            echo "Running migrations..."
-            php artisan migrate --force
-
-            echo "Clearing caches..."
-            php artisan optimize:clear
-
-            echo "Rebuilding caches..."
-            php artisan config:cache
-            php artisan route:cache
-
-            echo "Fixing permissions..."
-            chown -R www-data:www-data storage bootstrap/cache
-            chmod -R 775 storage bootstrap/cache
-
-            echo "Restart queues..."
-            php artisan queue:restart || true
-
-            echo "App live..."
-            php artisan up
-
-            echo "Reloading Nginx..."
-            sudo systemctl reload nginx
+          script: ${{ env.DEPLOY_SCRIPT }}
