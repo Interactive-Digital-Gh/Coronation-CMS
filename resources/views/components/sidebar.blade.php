@@ -236,6 +236,14 @@
                     </li>
 
 
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('quote-requests') ? 'active' : '' }}" href="{{ route('quote-requests') }}"><i class="fa fa-fw fa-file-invoice"></i> Quote Requests</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('contact-messages') ? 'active' : '' }}" href="{{ route('contact-messages') }}"><i class="fa fa-fw fa-inbox"></i> Contact Messages</a>
+                    </li>
+
                     <li class="nav-divider">
                         Institute
                     </li>

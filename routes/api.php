@@ -39,8 +39,10 @@ Route::get('/aboutus/executive-members/fetch', [ApiController::class, 'fetchExec
 
 
 // Contact Form Message Save
-Route::post('/contact/form', [FormsController::class, 'saveContactFormMessage']);
+Route::post('/contact/form', [FormsController::class, 'saveContactFormMessage'])->middleware('throttle:10,1');
 // Feedback Form
 Route::post('/feedback/form', [FormsController::class, 'saveFeedbackMessage']);
+// Quote request form (product pages)
+Route::post('/quote/request', [FormsController::class, 'saveQuoteRequest'])->middleware('throttle:10,1');
 
 Route::get('/article/{id}', [ApiController::class, 'downloadPDP']);

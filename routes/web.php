@@ -14,7 +14,9 @@ use App\Http\Controllers\Institute\EngineeringInsuranceController;
 use App\Http\Controllers\Institute\MarineInsuranceController;
 use App\Http\Controllers\Institute\MotorInsuranceController as InstituteMotorInsuranceController;
 use App\Http\Controllers\Institute\PnSController as InstitutePnSController;
+use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuoteRequestController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', function () {
@@ -33,6 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Quote requests submitted from the website product pages
+    Route::get('/quote-requests', [QuoteRequestController::class, 'index'])->name('quote-requests');
+    // Messages submitted from the website contact form
+    Route::get('/contact-messages', [ContactMessageController::class, 'index'])->name('contact-messages');
 
 
 
