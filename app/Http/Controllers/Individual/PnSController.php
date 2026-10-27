@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Individual;
 use App\Http\Controllers\Controller;
 use App\Models\PnS;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PnSController extends Controller
 {
     public function index()
     {
         $pns_header = PnS::select('id', 'header_image', 'header_caption', 'header_body')->where('id', 1)->first();
-        return view('pages.pns.header', compact('pns_header'));
+        return Inertia::render('Pns/Header', compact('pns_header'));
     }
 
 
@@ -60,7 +61,7 @@ class PnSController extends Controller
     public function PnsSec1()
     {
         $pns = PnS::find(1);
-        return view('pages.pns.section1', compact('pns'));
+        return Inertia::render('Pns/Section1', compact('pns'));
     }
 
 
@@ -122,7 +123,7 @@ class PnSController extends Controller
     public function PnsSec2()
     {
         $pns = PnS::find(1);
-        return view('pages.pns.section2', compact('pns'));
+        return Inertia::render('Pns/Section2', compact('pns'));
     }
 
 

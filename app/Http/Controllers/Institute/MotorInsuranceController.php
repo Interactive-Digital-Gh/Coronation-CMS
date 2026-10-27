@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Institute;
 use App\Http\Controllers\Controller;
 use App\Models\InstituteMotorInsurance;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class MotorInsuranceController extends Controller
 {
     public function showHeader()
     {
         $motor = InstituteMotorInsurance::find(1);
-        return view('pages.Institute.motor_insurance.header', compact('motor'));
+        return Inertia::render('Institute/MotorInsurance/Header', compact('motor'));
     }
 
     public function uploadImage($imageFile): string
@@ -55,7 +56,7 @@ class MotorInsuranceController extends Controller
     public function showMotorPage()
     {
         $motor = InstituteMotorInsurance::find(1);
-        return view('pages.Institute.motor_insurance.index', compact('motor'));
+        return Inertia::render('Institute/MotorInsurance/Page', compact('motor'));
     }
 
 
@@ -120,7 +121,7 @@ class MotorInsuranceController extends Controller
     public function showMotorBenefits()
     {
         $motor = InstituteMotorInsurance::find(1);
-        return view('pages.Institute.motor_insurance.benefits', compact('motor'));
+        return Inertia::render('Institute/MotorInsurance/Benefits', compact('motor'));
     }
 
     public function updateMotorBenfits(Request $request)

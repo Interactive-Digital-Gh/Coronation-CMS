@@ -4,6 +4,7 @@ use App\Mail\ContactMessageReceived;
 use App\Models\ContactFormMessage;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
+use Inertia\Testing\AssertableInertia as Assert;
 
 function validContactPayload(array $overrides = []): array
 {
@@ -76,10 +77,14 @@ test('the contact messages page lists saved messages to a signed-in user', funct
     $this->actingAs(User::factory()->create())
         ->get(route('contact-messages'))
         ->assertOk()
-        ->assertSee('Kofi Boateng')
-        ->assertSee('kofi@example.com')
-        ->assertSee('Acme Ltd')
-        ->assertSee('Please call me about fleet cover.');
+        ->assertInertia(fn (Assert $page) => $page
+            ->component('ContactMessages/Index')
+            ->where('messages.total', 1)
+            ->where('messages.data.0.first_name', 'Kofi')
+            ->where('messages.data.0.last_name', 'Boateng')
+            ->where('messages.data.0.email', 'kofi@example.com')
+            ->where('messages.data.0.company_related', 'Acme Ltd')
+            ->where('messages.data.0.message', 'Please call me about fleet cover.'));
 });
 
 test('the contact messages page requires login', function () {

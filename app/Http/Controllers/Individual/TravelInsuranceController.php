@@ -5,19 +5,20 @@ namespace App\Http\Controllers\Individual;
 use App\Http\Controllers\Controller;
 use App\Models\TravelInsurance;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class TravelInsuranceController extends Controller
 {
     public function index()
     {
         $travel = TravelInsurance::find(1);
-        return view('pages.travel_insurance.index', compact('travel'));
+        return Inertia::render('TravelInsurance/Page', compact('travel'));
     }
 
     public function showTravelHeader()
     {
         $travel = TravelInsurance::find(1);
-        return view('pages.travel_insurance.header', compact('travel'));
+        return Inertia::render('TravelInsurance/Header', compact('travel'));
     }
 
     public function uploadImage($imageFile): string
@@ -118,7 +119,7 @@ class TravelInsuranceController extends Controller
     public function showTravelBenefits()
     {
         $travel = TravelInsurance::find(1);
-        return view('pages.travel_insurance.benefits', compact('travel'));
+        return Inertia::render('TravelInsurance/Benefits', compact('travel'));
     }
 
 

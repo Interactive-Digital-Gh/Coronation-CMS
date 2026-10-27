@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Institute;
 use App\Http\Controllers\Controller;
 use App\Models\InstitutePns;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PnSController extends Controller
 {
     public function showPnSHeader()
     {
         $pns_header = InstitutePns::select('id', 'header_image', 'header_caption', 'header_body')->where('id', 1)->first();
-        return view('pages.Institute.pns.header', compact('pns_header'));
+        return Inertia::render('Institute/Pns/Header', compact('pns_header'));
     }
 
     public function uploadImage($imageFile): string
@@ -58,7 +59,7 @@ class PnSController extends Controller
        public function PnsSec1()
        {
            $pns = InstitutePns::find(1);
-           return view('pages.Institute.pns.section1', compact('pns'));
+           return Inertia::render('Institute/Pns/Section1', compact('pns'));
        }
 
 
@@ -118,7 +119,7 @@ class PnSController extends Controller
     public function PnsSec2()
     {
         $pns = InstitutePns::find(1);
-        return view('pages.Institute.pns.section2', compact('pns'));
+        return Inertia::render('Institute/Pns/Section2', compact('pns'));
     }
 
 

@@ -19,14 +19,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuoteRequestController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
-
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
-
 // Route::get('/dashboard', function () {
 //     return view('pages.homepage.header');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -74,6 +66,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/section4/update', [AboutUsController::class, 'updateSection4'])->name('about-sec4-update');
 
         Route::get('/section5', [AboutUsController::class, 'aboutSec5'])->name('about-sec5');
+        Route::post('/section5/text/update', [AboutUsController::class, 'updateBoDText'])->name('about-bod-text-update');
         Route::get('/section5/create/bod', [AboutUsController::class, 'createBoD'])->name('about-create-bod');
         Route::post('/section5/add/bod', [AboutUsController::class, 'storeBoD'])->name('about-sec5-store');
         Route::get('/section5/{id}/edit', [AboutUsController::class, 'editBoD'])->name('about-sec5-edit');

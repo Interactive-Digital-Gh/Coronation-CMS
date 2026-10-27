@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Institute;
 use App\Http\Controllers\Controller;
 use App\Models\MarineInsurance;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class MarineInsuranceController extends Controller
 {
     public function showHeader()
     {
         $marine = MarineInsurance::find(1);
-        return view('pages.Institute.marine_insurance.header', compact('marine'));
+        return Inertia::render('Institute/MarineInsurance/Header', compact('marine'));
     }
 
     public function uploadImage($imageFile): string
@@ -55,7 +56,7 @@ class MarineInsuranceController extends Controller
     public function showMarinePage()
     {
         $marine = MarineInsurance::find(1);
-        return view('pages.Institute.marine_insurance.index', compact('marine'));
+        return Inertia::render('Institute/MarineInsurance/Page', compact('marine'));
     }
 
 
@@ -107,7 +108,7 @@ class MarineInsuranceController extends Controller
     public function showMarineBenefits()
     {
         $marine = MarineInsurance::find(1);
-        return view('pages.Institute.marine_insurance.benefits', compact('marine'));
+        return Inertia::render('Institute/MarineInsurance/Benefits', compact('marine'));
     }
 
     public function updateMarineBenfits(Request $request)
