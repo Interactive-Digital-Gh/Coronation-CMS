@@ -7,7 +7,7 @@ import useCmsForm from '@/lib/useCmsForm';
 
 // Products & Solutions section 1: the intro text plus one card per product,
 // switched with ?card=. `cards` maps each tab to its column prefix.
-export default function ProductCardsPage({ title, breadcrumbs, action, pns, cards }) {
+export default function ProductCardsPage({ title, breadcrumbs, description, action, pns, cards }) {
     const requested = useQueryParam('card', cards[0].value);
     const card = cards.find((item) => item.value === requested) ?? cards[0];
 
@@ -32,11 +32,11 @@ export default function ProductCardsPage({ title, breadcrumbs, action, pns, card
 
     return (
         <AuthenticatedLayout title={title}>
-            <PageHeader title={title} breadcrumbs={breadcrumbs} />
+            <PageHeader title={title} breadcrumbs={breadcrumbs} description={description} />
             <LivePreview />
 
             <form onSubmit={form.submit(action)} className="space-y-6">
-                <Card title="Section 1 text">
+                <Card title="Introduction">
                     <Grid>
                         {editor('Caption', 'caption1')}
                         {editor('Body', 'body1')}

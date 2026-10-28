@@ -20,8 +20,8 @@ export default function CareersSection3({ career }) {
     });
 
     return (
-        <AuthenticatedLayout title="Careers Page Section 3">
-            <PageHeader title="Careers Page Section 3" breadcrumbs={['Individual', 'Careers', 'Section 3']} />
+        <AuthenticatedLayout title="Life at Coronation cards">
+            <PageHeader title="Life at Coronation cards" breadcrumbs={['Personal', 'Careers', 'Life at Coronation cards']} description="The five cards on the Careers page." />
             <LivePreview />
 
             <form onSubmit={form.submit(route('careers-section3-update'))} className="space-y-6">

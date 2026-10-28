@@ -30,8 +30,8 @@ export default function ContactDetails({ contact }) {
     );
 
     return (
-        <AuthenticatedLayout title="Contacts">
-            <PageHeader title="Contacts" breadcrumbs={['Individual', 'Contact', 'Contacts']} />
+        <AuthenticatedLayout title="Office details">
+            <PageHeader title="Office details" breadcrumbs={['Personal', 'Contact', 'Office details']} description="Office addresses and contact details for Ghana and Nigeria on the Contact page." />
             <LivePreview />
 
             <form onSubmit={form.submit(route('contact-update'))} className="space-y-6">

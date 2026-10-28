@@ -10,8 +10,9 @@ const fields = [
 export default function InstituteMotorInsuranceBenefits({ motor }) {
     return (
         <BenefitsPage
-            title="Institute Motor Insurance Benefits"
-            breadcrumbs={['Institute', 'Motor Insurance', 'Benefits']}
+            title="Motor Insurance benefits"
+            breadcrumbs={['Corporate', 'Products & Solutions', 'Motor Insurance', 'Benefits']}
+            description="The benefits section on the Corporate Motor Insurance page."
             action={route('institute-motor-benefits-update')}
             record={motor}
             intro={intro}

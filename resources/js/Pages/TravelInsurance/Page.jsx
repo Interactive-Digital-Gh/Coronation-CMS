@@ -26,8 +26,9 @@ const variants = [
 export default function TravelInsurancePage({ travel }) {
     return (
         <InsuranceProductPage
-            title="Travel Insurance Page"
-            breadcrumbs={['Individual', 'Travel Insurance', 'Page']}
+            title="Travel Insurance details"
+            breadcrumbs={['Personal', 'Products & Solutions', 'Travel Insurance', 'Product details']}
+            description="The cover types and their details on the Travel Insurance page."
             action={route('travel-update')}
             record={travel}
             variants={variants}

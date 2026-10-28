@@ -3,14 +3,15 @@ import ImageTextPage from '@/Components/ImageTextPage';
 export default function PnsSection2({ pns }) {
     return (
         <ImageTextPage
-            title="Institute Products &amp; Solutions Section 2"
-            breadcrumbs={['Institute', 'Products & Solutions', 'Section 2']}
+            title="Call to action"
+            breadcrumbs={['Corporate', 'Products & Solutions', 'Call to action']}
+            description="The call-to-action section on the Corporate Insurance page."
             action={route('institute-pns-section2-update')}
             image={pns.sec2_image}
             caption={pns.sec2_caption}
             body={pns.sec2_body}
-            imageTitle="Section 2 image"
-            textTitle="Section 2 text"
+            imageTitle="Image"
+            textTitle="Text"
         />
     );
 }

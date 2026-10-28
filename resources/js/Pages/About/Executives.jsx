@@ -6,10 +6,11 @@ import { formatDateTime } from '@/lib/helpers';
 
 export default function Executives({ executives }) {
     return (
-        <AuthenticatedLayout title="Executive Members">
+        <AuthenticatedLayout title="Executive Team">
             <PageHeader
-                title="Executive Members"
-                breadcrumbs={['Individual', 'About Page', 'Executive Members']}
+                title="Executive Team"
+                breadcrumbs={['Personal', 'About Us', 'Executive Team']}
+                description="Executive team profiles on the About Us page."
                 actions={
                     <ButtonLink href={route('create-executive-member')}>
                         <Plus className="h-4 w-4" /> Add executive member

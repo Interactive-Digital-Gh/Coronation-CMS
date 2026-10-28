@@ -10,8 +10,9 @@ const fields = [
 export default function InstituteEngineeringInsuranceBenefits({ eng }) {
     return (
         <BenefitsPage
-            title="Institute Engineering Insurance Benefits"
-            breadcrumbs={['Institute', 'Engineering Insurance', 'Benefits']}
+            title="Engineering Insurance benefits"
+            breadcrumbs={['Corporate', 'Products & Solutions', 'Engineering Insurance', 'Benefits']}
+            description="The benefits section on the Corporate Engineering Insurance page."
             action={route('institute-engineering-benefits-update')}
             record={eng}
             intro={intro}

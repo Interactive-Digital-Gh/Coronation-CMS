@@ -27,8 +27,9 @@ const variants = [
 export default function InstituteMotorInsurancePage({ motor }) {
     return (
         <InsuranceProductPage
-            title="Institute Motor Insurance Page"
-            breadcrumbs={['Institute', 'Motor Insurance', 'Page']}
+            title="Motor Insurance details"
+            breadcrumbs={['Corporate', 'Products & Solutions', 'Motor Insurance', 'Product details']}
+            description="The cover types and their details on the Corporate Motor Insurance page."
             action={route('institute-motor-section1-update')}
             record={motor}
             sectionImage={{ field: 'image', column: 'sec1_image', label: 'Background image' }}

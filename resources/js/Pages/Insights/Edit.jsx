@@ -17,7 +17,7 @@ export default function InsightsEdit({ blog, categories }) {
 
     return (
         <BlogForm
-            title="Edit Blog Post"
+            title="Edit post"
             form={form}
             action={route('update-blog', { id: blog.id })}
             blog={blog}

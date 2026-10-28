@@ -20,10 +20,10 @@ export default function InsightsCreate({ categories }) {
 
     return (
         <BlogForm
-            title="Create Blog Post"
+            title="New post"
             form={form}
             action={route('submit-blog')}
-            submitLabel="Create blog"
+            submitLabel="Create post"
             categoryCard={
                 <Card title="Category" description="Type a new category, or pick an existing one. A new category takes priority.">
                     <Grid>

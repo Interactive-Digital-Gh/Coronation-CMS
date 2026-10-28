@@ -10,7 +10,8 @@ export default function ContactMessagesIndex({ messages }) {
         <AuthenticatedLayout title="Contact Messages">
             <PageHeader
                 title="Contact Messages"
-                breadcrumbs={['Individual', 'Contact Messages']}
+                breadcrumbs={['Personal', 'Contact Messages']}
+                description="Messages sent from the contact form on the website."
                 actions={<span className="text-sm text-gray-500">{messages.total} total</span>}
             />
 

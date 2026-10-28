@@ -9,8 +9,9 @@ const fields = [
 export default function TravelInsuranceBenefits({ travel }) {
     return (
         <BenefitsPage
-            title="Travel Insurance Benefits"
-            breadcrumbs={['Individual', 'Travel Insurance', 'Benefits']}
+            title="Travel Insurance benefits"
+            breadcrumbs={['Personal', 'Products & Solutions', 'Travel Insurance', 'Benefits']}
+            description="The benefits section on the Travel Insurance page."
             action={route('travel-update-benefits')}
             record={travel}
             imageColumn="benefits_image"

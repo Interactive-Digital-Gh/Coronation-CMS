@@ -54,7 +54,7 @@ class HomeInsuranceController extends Controller
 
         $home->save();
 
-        toastr()->success('Home Insurance Header Updated');
+        toastr()->success('Home Insurance banner updated');
 
         return back();
     }
@@ -108,7 +108,7 @@ class HomeInsuranceController extends Controller
 
         $home->save();
 
-        toastr()->success('Home Insurance Page Updated');
+        toastr()->success('Home Insurance details updated');
 
         return back();
     }
@@ -141,7 +141,7 @@ class HomeInsuranceController extends Controller
 
         $home->save();
 
-        toastr()->success('Home Insurance Benefits Updated');
+        toastr()->success('Home Insurance benefits updated');
 
         return back();
     }

@@ -1,0 +1,1 @@
+import{a as s,j as r}from"./app-D-P67JYW.js";function u({messages:e={}}){const{status:t}=s().props;return t?r.jsx("div",{className:"mb-4 rounded-md bg-emerald-50 px-4 py-3 text-sm text-emerald-700",children:e[t]??t}):null}export{u as A};

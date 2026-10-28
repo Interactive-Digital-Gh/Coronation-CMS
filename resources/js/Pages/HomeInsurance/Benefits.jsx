@@ -9,8 +9,9 @@ const fields = [
 export default function HomeInsuranceBenefits({ home }) {
     return (
         <BenefitsPage
-            title="Home Insurance Benefits"
-            breadcrumbs={['Individual', 'Home Insurance', 'Benefits']}
+            title="Home Insurance benefits"
+            breadcrumbs={['Personal', 'Products & Solutions', 'Home Insurance', 'Benefits']}
+            description="The benefits section on the Home Insurance page."
             action={route('home-update-benefits')}
             record={home}
             imageColumn="benefit_image"

@@ -56,8 +56,9 @@ const variants = [
 export default function InstituteEngineeringInsurancePage({ eng }) {
     return (
         <InsuranceProductPage
-            title="Institute Engineering Insurance Page"
-            breadcrumbs={['Institute', 'Engineering Insurance', 'Page']}
+            title="Engineering Insurance details"
+            breadcrumbs={['Corporate', 'Products & Solutions', 'Engineering Insurance', 'Product details']}
+            description="The cover types and their details on the Corporate Engineering Insurance page."
             action={route('institute-engineering-update')}
             record={eng}
             bodyField="insurance_body"
