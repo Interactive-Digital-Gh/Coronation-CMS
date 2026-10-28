@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Individual;
 
 use App\Http\Controllers\Controller;
 use App\Models\Homepage;
+use App\Models\Insight;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class HomepageController extends Controller
 {
@@ -14,7 +16,7 @@ class HomepageController extends Controller
     public function index()
     {
         $home_header = Homepage::select('id', 'header_image', 'header_caption', 'header_body')->where('id', 1)->first();
-        return view('pages.homepage.header', compact('home_header'));
+        return Inertia::render('Home/Header', compact('home_header'));
     }
 
     public function uploadImage($imageFile): string
@@ -68,7 +70,7 @@ class HomepageController extends Controller
     public function homeSec1()
     {
         $home = Homepage::first();
-        return view('pages.homepage.section1', compact('home'));
+        return Inertia::render('Home/Section1', compact('home'));
     }
 
     public function updateSection1(Request $request)
@@ -133,20 +135,35 @@ class HomepageController extends Controller
         public function homeSec2()
         {
             $home = Homepage::first();
-            return view('pages.homepage.section2', compact('home'));
+            $blogs = Insight::select('id', 'caption', 'publish')->latest()->get();
+            return Inertia::render('Home/Section2', compact('home', 'blogs'));
         }
 
         public function updateSection2(Request $request)
         {
             $request->validate([
                 'caption' => 'required',
-                'body' => 'required'
+                'body' => 'required',
+                'insight_arr_type' => 'required|in:sort,select',
+                'insight_sort' => 'required|in:asc,desc',
+                'insight_tile1_id' => 'required_if:insight_arr_type,select|nullable|exists:insights,id',
+                'insight_tile2_id' => 'required_if:insight_arr_type,select|nullable|exists:insights,id',
+                'insight_tile3_id' => 'required_if:insight_arr_type,select|nullable|exists:insights,id',
             ]);
 
             $home_header = Homepage::find(1);
 
             $home_header->insight_caption = $request->caption;
             $home_header->insight_body = $request->body;
+            $home_header->insight_arr_type = $request->insight_arr_type;
+            $home_header->insight_sort = $request->insight_sort;
+
+            // The tile columns are non-nullable strings; keep the old pick when none is sent.
+            foreach (['insight_tile1_id', 'insight_tile2_id', 'insight_tile3_id'] as $tile) {
+                if ($request->filled($tile)) {
+                    $home_header->$tile = (string) $request->input($tile);
+                }
+            }
 
             $home_header->save();
 

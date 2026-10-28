@@ -6,20 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Models\Insight;
 use App\Models\InsightCategory;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class InsightsController extends Controller
 {
     public function allBlogPage()
     {
-        $blogs = Insight::all();
-        return view('pages.insights.all-blogs', compact('blogs'));
+        // Only the columns the list shows; bodies can be large.
+        $blogs = Insight::select('id', 'caption', 'main_image', 'publish', 'created_at')->get();
+        return Inertia::render('Insights/Index', compact('blogs'));
     }
 
 
     public function showAddBlogPage()
     {
         $categories = InsightCategory::all();
-        return view('pages.insights.add-blog', compact('categories'));
+        return Inertia::render('Insights/Create', compact('categories'));
     }
 
     public function uploadImage($imageFile): string
@@ -43,6 +45,7 @@ class InsightsController extends Controller
             'blog_image3' => $this->imageRules(),
             'caption' => 'required',
             'body' => 'required',
+            'excerpt' => 'required',
         ]);
 
         // dd($request);
@@ -72,6 +75,7 @@ class InsightsController extends Controller
             'caption' => $request->caption,
             'category' => $category,
             'body' => $request->body,
+            'excerpt' => $request->excerpt,
             'main_image' => $main_image,
             'pdf_file' => $pdf_file
         ]);
@@ -121,7 +125,7 @@ class InsightsController extends Controller
     {
         $blog = Insight::find($id);
         $categories = InsightCategory::all();
-        return view('pages.insights.edit-blog', compact('blog', 'categories'));
+        return Inertia::render('Insights/Edit', compact('blog', 'categories'));
     }
 
 

@@ -7,23 +7,23 @@ use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class RegisteredUserController extends Controller
 {
     /**
-     * Display the registration view.
+     * Display the form for adding an admin.
      */
-    public function create(): View
+    public function create(): Response
     {
-        return view('auth.register');
+        return Inertia::render('Auth/Register');
     }
 
     /**
-     * Handle an incoming registration request.
+     * Create an admin account for someone else; the current admin stays signed in.
      *
      * @throws \Illuminate\Validation\ValidationException
      */
@@ -43,8 +43,8 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
+        toastr()->success("Admin account created for {$user->email}");
 
-        return redirect(route('home-header', absolute: false));
+        return redirect(route('register'));
     }
 }

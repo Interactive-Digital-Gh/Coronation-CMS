@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\QuoteRequest;
+use Inertia\Inertia;
 
 class QuoteRequestController extends Controller
 {
@@ -10,6 +11,6 @@ class QuoteRequestController extends Controller
     {
         $requests = QuoteRequest::latest()->paginate(25);
 
-        return view('pages.quote-requests.index', compact('requests'));
+        return Inertia::render('QuoteRequests/Index', compact('requests'));
     }
 }

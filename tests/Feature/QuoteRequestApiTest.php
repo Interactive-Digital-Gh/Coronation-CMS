@@ -4,6 +4,7 @@ use App\Mail\QuoteRequestReceived;
 use App\Models\QuoteRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
+use Inertia\Testing\AssertableInertia as Assert;
 
 function validQuotePayload(array $overrides = []): array
 {
@@ -77,9 +78,13 @@ test('the quote requests page lists saved requests to a signed-in user', functio
     $this->actingAs(User::factory()->create())
         ->get(route('quote-requests'))
         ->assertOk()
-        ->assertSee('Motor Insurance')
-        ->assertSee('Ama Mensah')
-        ->assertSee('ama@example.com');
+        ->assertInertia(fn (Assert $page) => $page
+            ->component('QuoteRequests/Index')
+            ->where('requests.total', 1)
+            ->where('requests.data.0.product', 'Motor Insurance')
+            ->where('requests.data.0.first_name', 'Ama')
+            ->where('requests.data.0.last_name', 'Mensah')
+            ->where('requests.data.0.email', 'ama@example.com'));
 });
 
 test('the quote requests page requires login', function () {

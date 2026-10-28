@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactFormMessage;
+use Inertia\Inertia;
 
 class ContactMessageController extends Controller
 {
@@ -10,6 +11,6 @@ class ContactMessageController extends Controller
     {
         $messages = ContactFormMessage::latest()->paginate(25);
 
-        return view('pages.contact-messages.index', compact('messages'));
+        return Inertia::render('ContactMessages/Index', compact('messages'));
     }
 }

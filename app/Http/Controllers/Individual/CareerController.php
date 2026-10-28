@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Individual;
 use App\Http\Controllers\Controller;
 use App\Models\Career;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class CareerController extends Controller
 {
@@ -12,21 +13,21 @@ class CareerController extends Controller
     {
         $career = Career::select('header_image', 'header_caption', 'header_body')
         ->find(1);
-        return view('pages.careers.header', compact('career'));
+        return Inertia::render('Careers/Header', compact('career'));
     }
 
     public function showCareersSection1()
     {
         $career = Career::select('sec1_image', 'sec1_caption', 'sec1_body')
         ->find(1);
-        return view('pages.careers.section1', compact('career'));
+        return Inertia::render('Careers/Section1', compact('career'));
     }
 
     public function showCareersSection2()
     {
         $career = Career::select('sec2_image', 'sec2_caption', 'sec2_body')
         ->find(1);
-        return view('pages.careers.section2', compact('career'));
+        return Inertia::render('Careers/Section2', compact('career'));
     }
 
 
@@ -49,7 +50,7 @@ class CareerController extends Controller
           'card5_body',
           )
         ->find(1);
-        return view('pages.careers.section3', compact('career'));
+        return Inertia::render('Careers/Section3', compact('career'));
     }
 
 

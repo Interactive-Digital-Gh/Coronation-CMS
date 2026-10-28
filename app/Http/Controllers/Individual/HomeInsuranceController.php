@@ -5,19 +5,20 @@ namespace App\Http\Controllers\Individual;
 use App\Http\Controllers\Controller;
 use App\Models\HomeInsurance;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class HomeInsuranceController extends Controller
 {
     public function index()
     {
         $home = HomeInsurance::find(1);
-        return view('pages.home_insurance.index', compact('home'));
+        return Inertia::render('HomeInsurance/Page', compact('home'));
     }
 
     public function showHomeHeader()
     {
         $home = HomeInsurance::find(1);
-        return view('pages.home_insurance.header', compact('home'));
+        return Inertia::render('HomeInsurance/Header', compact('home'));
     }
 
 
@@ -115,7 +116,7 @@ class HomeInsuranceController extends Controller
     public function showHomeBenefits()
     {
         $home = HomeInsurance::find(1);
-        return view('pages.home_insurance.benefits', compact('home'));
+        return Inertia::render('HomeInsurance/Benefits', compact('home'));
     }
 
 

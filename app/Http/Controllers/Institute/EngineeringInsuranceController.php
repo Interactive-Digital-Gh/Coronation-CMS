@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Institute;
 use App\Http\Controllers\Controller;
 use App\Models\EngineeringInsurance;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class EngineeringInsuranceController extends Controller
 {
     public function showHeader()
     {
         $eng = EngineeringInsurance::find(1);
-        return view('pages.Institute.eng_insurance.header', compact('eng'));
+        return Inertia::render('Institute/EngineeringInsurance/Header', compact('eng'));
     }
 
     public function uploadImage($imageFile): string
@@ -56,7 +57,7 @@ class EngineeringInsuranceController extends Controller
     public function showEngineeringPage()
     {
         $eng = EngineeringInsurance::find(1);
-        return view('pages.Institute.eng_insurance.index', compact('eng'));
+        return Inertia::render('Institute/EngineeringInsurance/Page', compact('eng'));
     }
 
 
@@ -135,7 +136,7 @@ class EngineeringInsuranceController extends Controller
     public function showEngBenefits()
     {
         $eng = EngineeringInsurance::find(1);
-        return view('pages.Institute.eng_insurance.benefits', compact('eng'));
+        return Inertia::render('Institute/EngineeringInsurance/Benefits', compact('eng'));
     }
 
     public function updateEngBenfits(Request $request)

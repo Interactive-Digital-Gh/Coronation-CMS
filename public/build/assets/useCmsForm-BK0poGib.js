@@ -1,0 +1,1 @@
+import{u as m}from"./app-CCT4jcps.js";const u=e=>Object.fromEntries(Object.entries(e).filter(([,t])=>t!==null));function l(e){const t=m(e);return t.transform(u),{...t,submit:s=>o=>{o.preventDefault(),t.post(s,{preserveScroll:!0,onSuccess:()=>t.setData(n=>Object.fromEntries(Object.entries(n).map(([i,r])=>[i,r instanceof File?null:r])))})}}}export{l as u};

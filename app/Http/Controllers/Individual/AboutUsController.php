@@ -7,6 +7,7 @@ use App\Models\AboutUs;
 use App\Models\BOD;
 use App\Models\ExecutiveMember;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class AboutUsController extends Controller
 {
@@ -14,7 +15,7 @@ class AboutUsController extends Controller
     public function index()
     {
         $about_header = AboutUs::select('id', 'header_image', 'header_caption', 'header_body')->where('id', 1)->first();
-        return view('pages.aboutpage.header', compact('about_header'));
+        return Inertia::render('About/Header', compact('about_header'));
     }
 
     public function uploadImage($imageFile): string
@@ -65,7 +66,7 @@ class AboutUsController extends Controller
        public function aboutSec1()
        {
            $about = AboutUs::select('id', 'sec1_caption_left', 'sec1_body_left', 'sec1_caption_right', 'sec1_body_right')->where('id', 1)->first();
-           return view('pages.aboutpage.section1', compact('about'));
+           return Inertia::render('About/Section1', compact('about'));
        }
 
 
@@ -101,7 +102,7 @@ class AboutUsController extends Controller
     public function aboutSec2()
     {
         $about = AboutUs::select('id', 'sec2_image', 'sec2_caption', 'sec2_body')->where('id', 1)->first();
-        return view('pages.aboutpage.section2', compact('about'));
+        return Inertia::render('About/Section2', compact('about'));
     }
 
 
@@ -142,7 +143,7 @@ class AboutUsController extends Controller
     public function aboutSec3()
     {
         $about = AboutUs::select('id', 'sec3_image', 'sec3_caption', 'sec3_body')->where('id', 1)->first();
-        return view('pages.aboutpage.section3', compact('about'));
+        return Inertia::render('About/Section3', compact('about'));
     }
 
 
@@ -187,7 +188,7 @@ class AboutUsController extends Controller
     public function aboutSec4()
     {
         $about = AboutUs::select('id', 'sec4_image', 'sec4_caption', 'sec4_body')->where('id', 1)->first();
-        return view('pages.aboutpage.section4', compact('about'));
+        return Inertia::render('About/Section4', compact('about'));
     }
 
 
@@ -231,12 +232,32 @@ class AboutUsController extends Controller
     public function aboutSec5()
     {
         $bods = BOD::all();
-        return view('pages.aboutpage.section5', compact('bods'));
+        $about = AboutUs::select('id', 'bod_caption', 'bod_body')->where('id', 1)->first();
+        return Inertia::render('About/BoardMembers', compact('bods', 'about'));
+    }
+
+    public function updateBoDText(Request $request)
+    {
+        $request->validate([
+            'caption' => 'required|max:255',
+            'body' => 'required'
+        ]);
+
+        $about = AboutUs::find(1);
+
+        $about->bod_caption = $request->caption;
+        $about->bod_body = $this->cleanRichText($request->body);
+
+        $about->save();
+
+        toastr()->success('Board of Directors Text Updated');
+
+        return back();
     }
 
     public function createBoD()
     {
-        return view('pages.aboutpage.add-member');
+        return Inertia::render('About/BoardMemberForm');
     }
 
 
@@ -272,7 +293,7 @@ class AboutUsController extends Controller
     public function editBoD($id)
     {
         $bod = BOD::find($id);
-        return view('pages.aboutpage.edit-member', compact('bod'));
+        return Inertia::render('About/BoardMemberForm', compact('bod'));
     }
 
     public function updateBoD(Request $request, $id)
@@ -317,12 +338,12 @@ class AboutUsController extends Controller
     public function executiveMembersTable()
     {
         $executives = ExecutiveMember::all();
-        return view('pages.aboutpage.executive-table', compact('executives'));
+        return Inertia::render('About/Executives', compact('executives'));
     }
 
     public function createExecutiveMember()
     {
-        return view('pages.aboutpage.add-executive');
+        return Inertia::render('About/ExecutiveForm');
     }
 
     public function storeExecutiveMember(Request $request)
@@ -353,7 +374,7 @@ class AboutUsController extends Controller
     public function editExecutiveMember($id)
     {
         $executive = ExecutiveMember::find($id);
-        return view('pages.aboutpage.edit-executive', compact('executive'));
+        return Inertia::render('About/ExecutiveForm', compact('executive'));
     }
 
     public function updateExecutiveMember(Request $request, $id)

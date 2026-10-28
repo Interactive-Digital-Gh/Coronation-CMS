@@ -8,8 +8,8 @@ return [
     |--------------------------------------------------------------------------
     |
     | Hard cap applied to every image uploaded through the CMS. Enforced
-    | server-side via Controller::imageRules() and mirrored client-side in
-    | components/footer.blade.php. Keep this below PHP's upload_max_filesize
+    | server-side via Controller::imageRules() and mirrored client-side in the React
+    | ImageInput (resources/js/Components/FileInput.jsx). Keep this below PHP's upload_max_filesize
     | and post_max_size or uploads will be rejected before validation runs.
     |
     */

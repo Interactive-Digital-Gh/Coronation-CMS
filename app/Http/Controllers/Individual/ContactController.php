@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Individual;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ContactController extends Controller
 {
@@ -12,7 +13,7 @@ class ContactController extends Controller
     {
         $contact = Contact::select('header_image', 'header_caption', 'header_body')
         ->find(1);
-        return view('pages.contact.header', compact('contact'));
+        return Inertia::render('Contact/Header', compact('contact'));
     }
 
     public function showContacts()
@@ -26,7 +27,7 @@ class ContactController extends Controller
             'ng_headoffice'
          )
         ->find(1);
-        return view('pages.contact.contacts', compact('contact'));
+        return Inertia::render('Contact/Details', compact('contact'));
     }
 
 
