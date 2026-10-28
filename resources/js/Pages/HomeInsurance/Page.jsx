@@ -26,8 +26,9 @@ const variants = [
 export default function HomeInsurancePage({ home }) {
     return (
         <InsuranceProductPage
-            title="Home Insurance Page"
-            breadcrumbs={['Individual', 'Home Insurance', 'Page']}
+            title="Home Insurance details"
+            breadcrumbs={['Personal', 'Products & Solutions', 'Home Insurance', 'Product details']}
+            description="The cover types and their details on the Home Insurance page."
             action={route('house-update')}
             record={home}
             variants={variants}

@@ -90,7 +90,7 @@ class InsightsController extends Controller
 
         // $blog->save();
 
-        toastr()->success('New Blog added');
+        toastr()->success('Post created');
 
         return redirect()->route('blogs-all');
     }
@@ -98,7 +98,7 @@ class InsightsController extends Controller
     public function deleteBlog(String $id)
     {
         Insight::destroy($id);
-        toastr()->success('Blog Deleted');
+        toastr()->success('Post deleted');
         return back();
     }
 
@@ -109,10 +109,10 @@ class InsightsController extends Controller
         {
             $insight->publish = true;
             $insight->publish_date = now();
-            toastr()->success('Blog Published');
+            toastr()->success('Post published');
         }else{
             $insight->publish = false;
-            toastr()->success('Blog Unpublished');
+            toastr()->success('Post unpublished');
         }
 
         $insight->save();
@@ -176,7 +176,7 @@ class InsightsController extends Controller
 
         $blog->save();
 
-        toastr()->success('Blog Updated');
+        toastr()->success('Post updated');
 
         return redirect()->route('blogs-all');
     }

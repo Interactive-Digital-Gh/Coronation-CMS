@@ -20,8 +20,9 @@ const variants = [
 export default function InstituteMarineInsurancePage({ marine }) {
     return (
         <InsuranceProductPage
-            title="Institute Marine Insurance Page"
-            breadcrumbs={['Institute', 'Marine Insurance', 'Page']}
+            title="Marine Insurance details"
+            breadcrumbs={['Corporate', 'Products & Solutions', 'Marine Insurance', 'Product details']}
+            description="The cover types and their details on the Corporate Marine Insurance page."
             action={route('institute-marine-update')}
             record={marine}
             bodyField="insurance_body"

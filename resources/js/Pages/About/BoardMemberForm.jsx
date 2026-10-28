@@ -4,7 +4,7 @@ export default function BoardMemberForm({ bod }) {
     return (
         <MemberForm
             title={bod ? 'Edit Board Member' : 'Add Board Member'}
-            breadcrumbs={['Individual', 'About Page', 'Board of Directors']}
+            breadcrumbs={['Personal', 'About Us', 'Board of Directors']}
             action={bod ? route('about-sec5-update', { id: bod.id }) : route('about-sec5-store')}
             member={bod}
             withTitle

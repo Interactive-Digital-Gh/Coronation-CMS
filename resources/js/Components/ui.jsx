@@ -2,7 +2,7 @@ import { Link } from '@inertiajs/react';
 import { ChevronRight, ExternalLink, Eye, EyeOff, LoaderCircle } from 'lucide-react';
 import { forwardRef, useState } from 'react';
 
-export function PageHeader({ title, breadcrumbs = [], actions }) {
+export function PageHeader({ title, breadcrumbs = [], description, actions }) {
     return (
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -17,6 +17,7 @@ export function PageHeader({ title, breadcrumbs = [], actions }) {
                     </ol>
                 )}
                 <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
+                {description && <p className="mt-1 text-sm text-gray-500">{description}</p>}
             </div>
             {actions && <div className="flex gap-2">{actions}</div>}
         </div>

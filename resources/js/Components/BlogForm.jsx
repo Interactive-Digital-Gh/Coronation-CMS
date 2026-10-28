@@ -19,7 +19,7 @@ export default function BlogForm({ title, form, action, blog, categoryCard, subm
 
     return (
         <AuthenticatedLayout title={title}>
-            <PageHeader title={title} breadcrumbs={['Individual', 'Insights', title]} />
+            <PageHeader title={title} breadcrumbs={['Personal', 'Insights', title]} />
 
             <form onSubmit={form.submit(action)} className="space-y-6">
                 <Card title="Files">

@@ -24,19 +24,19 @@ export default function AboutSection1({ about }) {
     );
 
     return (
-        <AuthenticatedLayout title="About Page Section 1">
-            <PageHeader title="About Page Section 1" breadcrumbs={['Individual', 'About Page', 'Section 1']} />
+        <AuthenticatedLayout title="Our Journey">
+            <PageHeader title="Our Journey" breadcrumbs={['Personal', 'About Us', 'Our Journey']} description="The “2008” and “Present” panels on the About Us page." />
             <LivePreview />
 
             <form onSubmit={form.submit(route('about-sec1-update'))} className="space-y-6">
-                <Card title="Section 1 left">
+                <Card title="Left panel">
                     <Grid>
                         {editor('Caption', 'caption_right')}
                         {editor('Body', 'body_right')}
                     </Grid>
                 </Card>
 
-                <Card title="Section 1 right">
+                <Card title="Right panel">
                     <Grid>
                         {editor('Caption', 'caption_left')}
                         {editor('Body', 'body_left')}

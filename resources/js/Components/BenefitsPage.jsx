@@ -6,7 +6,7 @@ import useCmsForm from '@/lib/useCmsForm';
 
 // Benefits screen of an insurance product. `fields` maps request names to
 // record columns; `imageColumn` adds the optional benefits image.
-export default function BenefitsPage({ title, breadcrumbs, action, record, imageColumn, intro, fields }) {
+export default function BenefitsPage({ title, breadcrumbs, description, action, record, imageColumn, intro, fields }) {
     const form = useCmsForm({
         submit: 'submit',
         ...(imageColumn && { image: null }),
@@ -27,7 +27,7 @@ export default function BenefitsPage({ title, breadcrumbs, action, record, image
 
     return (
         <AuthenticatedLayout title={title}>
-            <PageHeader title={title} breadcrumbs={breadcrumbs} />
+            <PageHeader title={title} breadcrumbs={breadcrumbs} description={description} />
             <LivePreview />
 
             <form onSubmit={form.submit(action)} className="space-y-6">

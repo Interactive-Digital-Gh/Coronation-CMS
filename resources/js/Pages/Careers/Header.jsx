@@ -3,14 +3,15 @@ import ImageTextPage from '@/Components/ImageTextPage';
 export default function CareersHeader({ career }) {
     return (
         <ImageTextPage
-            title="Careers Page Header"
-            breadcrumbs={['Individual', 'Careers', 'Header']}
+            title="Careers banner"
+            breadcrumbs={['Personal', 'Careers', 'Page banner']}
+            description="The banner at the top of the Careers page."
             action={route('careers-header-update')}
             image={career.header_image}
             caption={career.header_caption}
             body={career.header_body}
-            imageTitle="Header image"
-            textTitle="Header text"
+            imageTitle="Banner image"
+            textTitle="Banner text"
         />
     );
 }

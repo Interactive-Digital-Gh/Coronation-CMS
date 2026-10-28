@@ -49,7 +49,7 @@ class PnSController extends Controller
 
         $pns_header->save();
 
-        toastr()->success('Products and Solutions Page Header Updated');
+        toastr()->success('Products & Solutions banner updated');
 
         return back();
     }
@@ -109,7 +109,7 @@ class PnSController extends Controller
 
            $pns->save();
 
-           toastr()->success('Section 1 Updated');
+           toastr()->success('Product cards updated');
 
            return back();
        }
@@ -145,7 +145,7 @@ class PnSController extends Controller
 
         $pns->save();
 
-        toastr()->success('Products and Solutions Section 2 Updated');
+        toastr()->success('Call to action updated');
 
         return back();
     }

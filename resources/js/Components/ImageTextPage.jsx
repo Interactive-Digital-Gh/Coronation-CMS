@@ -9,6 +9,7 @@ import useCmsForm from '@/lib/useCmsForm';
 export default function ImageTextPage({
     title,
     breadcrumbs,
+    description,
     action,
     image,
     caption,
@@ -21,7 +22,7 @@ export default function ImageTextPage({
 
     return (
         <AuthenticatedLayout title={title}>
-            <PageHeader title={title} breadcrumbs={breadcrumbs} />
+            <PageHeader title={title} breadcrumbs={breadcrumbs} description={description} />
             <LivePreview url={previewUrl} />
 
             <form onSubmit={form.submit(action)} className="space-y-6">

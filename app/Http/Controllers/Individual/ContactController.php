@@ -63,7 +63,7 @@ class ContactController extends Controller
 
         $contact->save();
 
-        toastr()->success('Contact Header Updated');
+        toastr()->success('Contact banner updated');
 
         return back();
     }
@@ -99,7 +99,7 @@ class ContactController extends Controller
 
         $contact->save();
 
-        toastr()->success('Contacts Updated');
+        toastr()->success('Office details updated');
 
         return back();
     }

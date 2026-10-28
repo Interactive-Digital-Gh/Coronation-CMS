@@ -22,7 +22,8 @@ export default function QuoteRequestsIndex({ requests }) {
         <AuthenticatedLayout title="Quote Requests">
             <PageHeader
                 title="Quote Requests"
-                breadcrumbs={['Individual', 'Quote Requests']}
+                breadcrumbs={['Personal', 'Quote Requests']}
+                description="Quote requests sent from the website."
                 actions={<span className="text-sm text-gray-500">{requests.total} total</span>}
             />
 

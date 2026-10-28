@@ -27,8 +27,9 @@ const variants = [
 export default function MotorInsurancePage({ motor }) {
     return (
         <InsuranceProductPage
-            title="Motor Insurance Page"
-            breadcrumbs={['Individual', 'Motor Insurance', 'Page']}
+            title="Motor Insurance details"
+            breadcrumbs={['Personal', 'Products & Solutions', 'Motor Insurance', 'Product details']}
+            description="The cover types and their details on the Motor Insurance page."
             action={route('motor-update')}
             record={motor}
             sectionImage={{ field: 'image', column: 'sec1_image', label: 'Background image' }}

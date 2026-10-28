@@ -87,7 +87,7 @@ class CareerController extends Controller
 
         $career->save();
 
-        toastr()->success('Careers Header Updated');
+        toastr()->success('Careers banner updated');
 
         return back();
     }
@@ -115,7 +115,7 @@ class CareerController extends Controller
 
         $career->save();
 
-        toastr()->success('Careers Section 1 Updated');
+        toastr()->success('Investing in You updated');
 
         return back();
     }
@@ -142,7 +142,7 @@ class CareerController extends Controller
 
         $career->save();
 
-        toastr()->success('Careers Section 2 Updated');
+        toastr()->success('Culture updated');
 
         return back();
     }
@@ -197,7 +197,7 @@ class CareerController extends Controller
 
         $career->save();
 
-        toastr()->success('Careers Card Updated');
+        toastr()->success('Life at Coronation card updated');
 
         return back();
     }

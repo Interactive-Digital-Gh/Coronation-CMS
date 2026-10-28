@@ -24,8 +24,8 @@ export default function HomeSection1({ home }) {
     });
 
     return (
-        <AuthenticatedLayout title="Homepage Section 1">
-            <PageHeader title="Homepage Section 1" breadcrumbs={['Individual', 'Homepage', 'Section 1']} />
+        <AuthenticatedLayout title="Feature cards">
+            <PageHeader title="Feature cards" breadcrumbs={['Personal', 'Homepage', 'Feature cards']} description="The two cards with buttons under the homepage banner." />
             <LivePreview />
 
             <form onSubmit={form.submit(route('home-sec1-update'))} className="space-y-6">

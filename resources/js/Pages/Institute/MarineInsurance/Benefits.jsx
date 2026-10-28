@@ -9,8 +9,9 @@ const fields = [
 export default function InstituteMarineInsuranceBenefits({ marine }) {
     return (
         <BenefitsPage
-            title="Institute Marine Insurance Benefits"
-            breadcrumbs={['Institute', 'Marine Insurance', 'Benefits']}
+            title="Marine Insurance benefits"
+            breadcrumbs={['Corporate', 'Products & Solutions', 'Marine Insurance', 'Benefits']}
+            description="The benefits section on the Corporate Marine Insurance page."
             action={route('institute-marine-benefits-update')}
             record={marine}
             imageColumn="benefits_image"

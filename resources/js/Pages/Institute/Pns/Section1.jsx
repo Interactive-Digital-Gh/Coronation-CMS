@@ -9,8 +9,9 @@ const cards = [
 export default function InstitutePnsSection1({ pns }) {
     return (
         <ProductCardsPage
-            title="Institute Products & Solutions Section 1"
-            breadcrumbs={['Institute', 'Products & Solutions', 'Section 1']}
+            title="Product cards"
+            breadcrumbs={['Corporate', 'Products & Solutions', 'Product cards']}
+            description="The introduction and the Motor, Engineering and Marine Insurance cards on the Corporate Insurance page."
             action={route('institute-pns-section1-update')}
             pns={pns}
             cards={cards}

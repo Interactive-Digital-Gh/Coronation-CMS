@@ -6,10 +6,11 @@ import { formatDateTime, stripHtml } from '@/lib/helpers';
 
 export default function InsightsIndex({ blogs }) {
     return (
-        <AuthenticatedLayout title="Blogs">
+        <AuthenticatedLayout title="All posts">
             <PageHeader
-                title="Blogs"
-                breadcrumbs={['Individual', 'Insights', 'All Blogs']}
+                title="All posts"
+                breadcrumbs={['Personal', 'Insights', 'All posts']}
+                description="Blog posts for the Insights page. Only published posts appear on the website."
                 actions={
                     <ButtonLink href={route('add-blog')}>
                         <Plus className="h-4 w-4" /> Add new blog

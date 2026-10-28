@@ -43,7 +43,8 @@ export default function BoardMembers({ bods, about }) {
         <AuthenticatedLayout title="Board of Directors">
             <PageHeader
                 title="Board of Directors"
-                breadcrumbs={['Individual', 'About Page', 'Board of Directors']}
+                breadcrumbs={['Personal', 'About Us', 'Board of Directors']}
+                description="The board heading, introduction and member profiles on the About Us page."
                 actions={
                     <ButtonLink href={route('about-create-bod')}>
                         <Plus className="h-4 w-4" /> Add board member

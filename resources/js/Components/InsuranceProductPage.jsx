@@ -14,6 +14,7 @@ import useCmsForm from '@/lib/useCmsForm';
 export default function InsuranceProductPage({
     title,
     breadcrumbs,
+    description,
     action,
     record,
     sectionImage,
@@ -58,11 +59,11 @@ export default function InsuranceProductPage({
 
     return (
         <AuthenticatedLayout title={title}>
-            <PageHeader title={title} breadcrumbs={breadcrumbs} />
+            <PageHeader title={title} breadcrumbs={breadcrumbs} description={description} />
             <LivePreview />
 
             <form onSubmit={form.submit(action)} className="space-y-6">
-                <Card title="Section 1">
+                <Card title="Introduction">
                     {sectionImage && imageInput(sectionImage, true)}
                     <Grid>
                         {editor('Caption', 'caption')}
