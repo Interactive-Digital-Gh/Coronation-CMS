@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Rich text editor (resources/js/Components/RichTextEditor.jsx). Tailwind's
+   reset strips heading sizes and list bullets, so give the copy readable
+   defaults while it is being edited. */
+@layer components {
+    .cms-editor-content {
+        @apply px-4 py-3 text-sm leading-6 text-gray-800 focus:outline-none;
+    }
+
+    .cms-editor-content > * + *,
+    .cms-editor-content li > * + *,
+    .cms-editor-content blockquote > * + * {
+        @apply mt-3;
+    }
+
+    .cms-editor-content h1 { @apply text-2xl font-bold; }
+    .cms-editor-content h2 { @apply text-xl font-bold; }
+    .cms-editor-content h3 { @apply text-lg font-semibold; }
+    .cms-editor-content h4,
+    .cms-editor-content h5,
+    .cms-editor-content h6 { @apply text-base font-semibold; }
+
+    .cms-editor-content ul { @apply list-disc pl-6; }
+    .cms-editor-content ol { @apply list-decimal pl-6; }
+    .cms-editor-content li + li { @apply mt-1; }
+
+    .cms-editor-content a { @apply text-blue-600 underline; }
+    .cms-editor-content blockquote { @apply border-l-4 border-gray-200 pl-4 italic text-gray-600; }
+    .cms-editor-content hr { @apply my-4 border-gray-200; }
+    .cms-editor-content img { @apply max-w-full rounded; }
+    .cms-editor-content img.ProseMirror-selectednode { @apply ring-2 ring-blue-500; }
+
+    .cms-editor-content table { @apply w-full table-fixed border-collapse; }
+    .cms-editor-content td,
+    .cms-editor-content th { @apply border border-gray-300 px-2 py-1 align-top; }
+    .cms-editor-content th { @apply bg-gray-50 text-left font-semibold; }
+    .cms-editor-content .selectedCell { @apply bg-blue-50; }
+
+    /* Saved section/div wrappers can't be seen otherwise; outline them lightly. */
+    .cms-editor-content section,
+    .cms-editor-content div[data-cms-class] { @apply rounded outline-dashed outline-1 outline-offset-2 outline-gray-200; }
+}

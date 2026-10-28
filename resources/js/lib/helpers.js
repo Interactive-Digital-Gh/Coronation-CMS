@@ -33,7 +33,7 @@ export function formatDateTime(value) {
     }).format(new Date(value));
 }
 
-// Captions are stored as TinyMCE HTML; tables only need the plain text.
+// Captions are stored as rich text HTML; tables only need the plain text.
 export function stripHtml(html) {
     if (!html) {
         return '';
